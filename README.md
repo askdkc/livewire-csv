@@ -88,6 +88,27 @@ php artisan vendor:publish --tag="livewire-csv-views"
 
 > Before Using this command, please take a look at this [section](#in-tall-stack-project) below.
 
+## Add `use HasCsvImports` to your User Model
+
+You need to implement HasCsvImports to your User model.
+
+Open `app/Models/User.php` and edit like below:
+```php
+<?php
+
+namespace App\Models;
+
+use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Notifications\Notifiable;
+use Askdkc\LivewireCsv\Concerns\HasCsvImports; // add
+...
+
+class User extends Authenticatable
+{
+    use HasApiTokens, HasFactory, Notifiable, HasCsvImports; // add HasCsvImports here
+    
+```
+
 ## Usage
 
 ### CSV Importer Component
