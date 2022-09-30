@@ -39,6 +39,14 @@ php artisan vendor:publish --tag="livewire-csv-migrations"
 php artisan migrate
 ```
 
+Csv Import uses Queue Worker so you need to create these tables:
+
+```bash
+php artisan queue:table
+php artisan queue:batches-table
+php artisan migrate
+```
+
 Publish the config file with:
 
 ```bash
