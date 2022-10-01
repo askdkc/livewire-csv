@@ -227,7 +227,9 @@ This Package Was Inspired by [codecourse](https://codecourse.com) video series. 
 ## Credits
 
 - [askdkc](https://github.com/askdkc)
-- [ousid](https://github.com/ousid)
+- [ousid](https://github.com/ousid) Original Package Creator
+- [Alex Garrett-Smith](https://codecourse.com/courses/build-a-livewire-csv-importer) Originally introduced this app through his [Codecourse](https://codecourse.com/courses/build-a-livewire-csv-importer).<br>
+If you want to learn deeper, subscribe his [Codecourse series](https://codecourse.com) (it's really good!).
 - [All Contributors](../../contributors)
 
 ## License
