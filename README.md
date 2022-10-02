@@ -3,7 +3,7 @@
 
 # [日本語ReadMeはこちら](/README-ja.md)
 
-# Contents
+# About This Package
 - [Introduction](#introduction)
 - [Installation](#installation)
 - [Configuration](#configuration)
