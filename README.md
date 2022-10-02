@@ -1,7 +1,9 @@
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/askdkc/livewire-csv.svg?style=flat-square)](https://packagist.org/packages/askdkc/livewire-csv)
 [![Total Downloads](https://img.shields.io/packagist/dt/askdkc/livewire-csv.svg?style=flat-square)](https://packagist.org/packages/askdkc/livewire-csv)
 
+# [日本語ReadMeはこちら](/README-ja.md)
 
+# Contents
 - [Introduction](#introduction)
 - [Installation](#installation)
 - [Configuration](#configuration)
