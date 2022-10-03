@@ -2,6 +2,7 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/askdkc/livewire-csv.svg?style=flat-square)](https://packagist.org/packages/askdkc/livewire-csv)
 
 # [日本語ReadMeはこちら](/README-ja.md)
+## **現在バグ修正中**
 
 # About This Package
 - [Introduction](#introduction)
