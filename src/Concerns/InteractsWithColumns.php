@@ -37,22 +37,4 @@ trait InteractsWithColumns
             })->toArray();
     }
 
-    /**
-     * Maps columnLabels property into columnsToMap label state.
-     *
-     * @return array
-     */
-    protected function mapThroughColumnLabels(): array
-    {
-        if (! $this->columnLabels) {
-            return [];
-        }
-
-        return collect($this->requiredColumns)
-                ->mapWithKeys(function ($column): array {
-                    return [
-                        'columnsToMap.'.$column => strtolower($this->columnLabels[$column]),
-                    ];
-                })->toArray();
-    }
 }
