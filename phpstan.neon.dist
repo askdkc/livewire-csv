@@ -1,0 +1,18 @@
+includes:
+    - phpstan-baseline.neon
+
+parameters:
+    level: 6
+    paths:
+        - src
+        - config
+        - database
+    tmpDir: build/phpstan
+    checkOctaneCompatibility: true
+    checkModelProperties: true
+    checkMissingIterableValueType: false
+    checkGenericClassInNonGenericObjectType: false
+    ignoreErrors:
+        - '#Internal error: Internal error: Target class \[livewire-csv\] does not exist.#'
+        - '#Internal error: Internal error: Target class \[livewire\] does not exist.#'
+
