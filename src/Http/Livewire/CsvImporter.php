@@ -59,9 +59,6 @@ class CsvImporter extends Component
         // map and coverts the columnsToMap property into an associative array
         $this->columnsToMap = $this->mapThroughColumns();
 
-        // map and coverts the requiredColumns property int key => value array
-        $this->columnLabels = $this->mapThroughColumnLabels();
-
         // map and coverts the requiredColumns property int key => required value
         $this->requiredColumns = $this->mapThroughRequiredColumns();
     }
