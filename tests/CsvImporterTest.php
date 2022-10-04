@@ -145,8 +145,8 @@ it('maps through columnsLabels for validate attributes', function () {
     ])
     ->assertSet('model', $model)
     ->assertSet('columnLabels', [
-        'columnsToMap.name' => 'name',
-        'columnsToMap.email' => 'email',
+        'name' => 'Name',
+        'email' => 'Email',
     ]);
 });
 
