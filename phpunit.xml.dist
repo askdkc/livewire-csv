@@ -19,7 +19,7 @@
     verbose="true"
 >
     <testsuites>
-        <testsuite name="LivewireCsv Test Suite">
+        <testsuite name="Askdkc Test Suite">
             <directory>tests</directory>
         </testsuite>
     </testsuites>
