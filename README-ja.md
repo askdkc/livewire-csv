@@ -8,8 +8,8 @@
 - [使用準備](#configuration)
 - [Userモデルにuse HasCsvImportsを追加](#addtraits)
 - [使い方](#usage)
-  - [コンポーネントを利用するbladeビューの準備](#createbladeview)
-  - [CSV Importerコンポーネントについて](#csv-importer-component)
+  - [コンポーネントを利用するbladeビューの準備](#bladeview)
+  - [CSV Importerコンポーネントについて](#csvcomponent)
   - [Buttonコンポーネントについて](#aboutbladecomponent)
   - [TALLスタック利用のプロジェクトで使う場合](#in-tall-stack-project)
   - [TALLスタック以外のプロジェクトで使う場合](#in-none-tall-stack-project)
@@ -151,7 +151,7 @@ class User extends Authenticatable
 <a name="usage"></a>
 ## 使い方
 
-<a name="createbladeview"></a>
+<a name="bladeview"></a>
 ### コンポーネントを利用するbladeビューの準備
 
 CSVをインポートする`CSV Importer`コンポーネントはLivewireで作られているため、最初にLivewireが使えるビューファイルを準備します。また、CSVインポートに使用されるパッケージが認証されたユーザによる実行にのみ対応しているため、Laravelのログイン認証機能と併せて使える画面を用意するため、ここでは`laravel/breeze`を利用した例を記載します
@@ -283,7 +283,7 @@ php artisan queue:work
 ```
 
 ブラウザで下記にアクセスします
-[http://localhost:8000](http://localhost:8000)
+http://localhost:8000
 <br><br>
 右上のRegisterからユーザ登録します
 <img width="1253" alt="image" src="https://user-images.githubusercontent.com/7894265/194009152-a6463e3a-9dd8-4505-b9a5-f7653f89011e.png">
@@ -303,9 +303,7 @@ php artisan queue:work
 データが読み込まれます。大量のデータでも捌いてくれます👍
 
 
-## 以下は各パーツごとの詳細です
-
-<a name=“csv-importer-component”></a>
+<a name=“csvcomponent”></a>
 ### CSV Importerコンポーネントについて
 CSVファイルをインポートするための`CSV Importer`コンポーネントをbladeファイルに組み込むためには下記のようにします。ここでは`id`, `name`, `email`, `password`のフィールドを持つモデル（例として：YourModel::class）において、バリデーション対象フィールドとして`id`, `name`, `email`を、それぞれの読み込み時のラベルとして”ID”、”名前”、”メアド”、”パスワード”を指定する例を記載しております：
 
@@ -420,6 +418,6 @@ composer test
 このアプリが気に入った人は[Codecourse series](https://codecourse.com)を契約しましょう (どれも素晴らしいです).
 - [All Contributors](../../contributors)
 
-<a name=“license”></a>
+<a id=“license”></a>
 ## ライセンス
 The MIT License (MIT)です。 [License File](LICENSE.md)を見てね
