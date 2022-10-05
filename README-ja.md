@@ -151,6 +151,7 @@ class User extends Authenticatable
 <a name="usage"></a>
 ## 使い方
 
+<a name="createbladeview"></a>
 ### コンポーネントを利用するbladeビューの準備
 
 CSVをインポートする`CSV Importer`コンポーネントはLivewireで作られているため、最初にLivewireが使えるビューファイルを準備します。また、CSVインポートに使用されるパッケージが認証されたユーザによる実行にのみ対応しているため、Laravelのログイン認証機能と併せて使える画面を用意するため、ここでは`laravel/breeze`を利用した例を記載します
