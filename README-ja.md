@@ -3,12 +3,12 @@
 
 # Livewire-CSVパッケージについて
 ## **現在バグフィックス中(そこそこ動くけど)**
-- [このパッケージについて](#aboutthispackage)
-- [インストール方法](#installation)
-- [使用準備](#configuration)
-- [Userモデルにuse HasCsvImportsを追加](#addtraits)
-- [使い方](#usage)
-  - [コンポーネントを利用するbladeビューの準備](#bladeview)
+- [このパッケージについて](#このパッケージについて)
+- [インストール方法](#インストール方法)
+- [使用準備](#使用準備)
+- [Userモデルにuse HasCsvImportsを追加](#userモデルに-use-hascsvimports-を追加)
+- [使い方](#使い方)
+  - [コンポーネントを利用するbladeビューの準備](#コンポーネントを利用するbladeビューの準備)
   - [CSV Importerコンポーネントについて](#csv-importerコンポーネントについて)
   - [Buttonコンポーネントについて](#buttonコンポーネントについて)
   - [TALLスタック利用のプロジェクトで使う場合](#tallスタック利用のプロジェクトで使う場合)
@@ -22,11 +22,11 @@
 - [作成者一覧](#作成者一覧)
 - [ライセンス](#ライセンス)
 
-<a name="aboutthispackage"></a>
+
 ## このパッケージについて
 __Livewire CSV__ はLaravel [Livewire](https://laravel-livewire.com)を使ってお手軽にCSVをインポート出来るように出来ています。
 
-<a name="installation"></a>
+
 ## インストール方法
 
 下記のようにcomposerを使ってお手軽インストール出来ます:
@@ -34,7 +34,7 @@ __Livewire CSV__ はLaravel [Livewire](https://laravel-livewire.com)を使って
 ```sh
 composer require askdkc/livewire-csv
 ```
-<a name="configuration"></a>
+
 ## 使用準備
 
 `.env`ファイルの修正
@@ -148,10 +148,10 @@ class User extends Authenticatable
     
 ```
 
-<a name="usage"></a>
+
 ## 使い方
 
-<a name="bladeview"></a>
+
 ### コンポーネントを利用するbladeビューの準備
 
 CSVをインポートする`CSV Importer`コンポーネントはLivewireで作られているため、最初にLivewireが使えるビューファイルを準備します。また、CSVインポートに使用されるパッケージが認証されたユーザによる実行にのみ対応しているため、Laravelのログイン認証機能と併せて使える画面を用意するため、ここでは`laravel/breeze`を利用した例を記載します
@@ -302,8 +302,7 @@ http://localhost:8000
 <br><br>
 データが読み込まれます。大量のデータでも捌いてくれます👍
 
-<a name="bladeview"></a>
-<a name=“csvcomponent”></a>
+
 ### CSV Importerコンポーネントについて
 CSVファイルをインポートするための`CSV Importer`コンポーネントをbladeファイルに組み込むためには下記のようにします。ここでは`id`, `name`, `email`, `password`のフィールドを持つモデル（例として：YourModel::class）において、バリデーション対象フィールドとして`id`, `name`, `email`を、それぞれの読み込み時のラベルとして”ID”、”名前”、”メアド”、”パスワード”を指定する例を記載しております：
 
@@ -326,7 +325,7 @@ CSVファイルをインポートするための`CSV Importer`コンポーネン
 |  :required-columns |`array` | インポート時にバリデーションするカラムをここに書きます  |
 | :columns-label  |`array` |  必須カラムのラベルを記載します  |
 
-<a name=“aboutbladecomponent”></a>
+
 ### Buttonコンポーネントについて
 Buttonコンポーネントは`CSV Importer`コンポーネントを表示させるのに使われます。このコンポーネントは `alpinejs` を使用しています。このボタンをビューの中で使うにはbladeファイルに `x-csv-button` コンポーネントを下記のように記載します
 
@@ -345,7 +344,7 @@ Buttonコンポーネントは`CSV Importer`コンポーネントを表示させ
 </x-csv-button>
 ```
 
-<a name=“in-tall-stack-project”></a>
+
 ### TALLスタック利用のプロジェクトで使う場合
 このパッケージを [TALLスタック](https://tallstack.dev/) (Tailwindcss, Alpinejs, Laravel, Livewire) プロジェクトで利用する場合には、下記コマンドを使用することで vendor/views ファイルを出力させて表示をカスタマイズするこが出来ます：
 
@@ -358,7 +357,7 @@ php artisan vendor:publish --tag="csv-views"
 npm run dev
 ```
 
-<a name=“in-none-tall-stack-project”></a>
+
 ### TALLスタック以外のプロジェクトで使う場合
 TALLスタックを使用していない場合は `csvディレクティブ` を使用することで必要なスタイルシートとスクリプトを読み込めます：
 
@@ -378,7 +377,7 @@ TALLスタックを使用していない場合は `csvディレクティブ` を
 
 ```
 
-<a name=“using-queues”></a>
+
 ### キュー（Queues）の使用
 このパッケージは [キュー(Laravel queues)](https://laravel.com/docs/9.x/queues#main-content) を使っているので、CSVインポート前に下記のコマンドを実行してLaravelのキューワーカー(queue worker)を利用可能にしておいてください
 
@@ -388,29 +387,29 @@ php artisan queue:work
 
 キューに関する細かな説明は[こちらのLaravel Queues Documentation](https://laravel.com/docs/9.x/queues#main-content) を参考にしてください
 
-<a name=“test></a>
+
 ## テスト
 ```sh
 composer test
 ```
 
-<a name=“changelog”></a>
+
 ## 変更履歴
 [CHANGELOG](CHANGELOG.md) を見てね
 
-<a name=“contribution”></a>
+
 ## 貢献方法
 [CONTRIBUTING](https://github.com/ousid/.github/blob/main/CONTRIBUTING.md) を見てね
 
-<a name=“security”></a>
+
 ## セキュリティに関して
 [our security policy](../../security/policy) を参考に報告してね
 
-<a name=“ideas”></a>
+
 ## このパッケージのアイデアについて
 このパッケージは[codecourse](https://codecourse.com) で提供されてるコースに登場するLaravelアプリを元にしています。もっと知りたい方はCodecourseの [こちらの動画](https://codecourse.com/subjects/laravel-livewire) を見てください
 
-<a name=“credits”></a>
+
 ## 作成者一覧
 - [askdkc](https://github.com/askdkc) このリポジトリの作者
 - [ousid](https://github.com/ousid) このパッケージを最初に作った人
@@ -418,6 +417,6 @@ composer test
 このアプリが気に入った人は[Codecourse series](https://codecourse.com)を契約しましょう (どれも素晴らしいです).
 - [All Contributors](../../contributors)
 
-<a id=“license”></a>
+
 ## ライセンス
 The MIT License (MIT)です。 [License File](LICENSE.md)を見てね
