@@ -9,18 +9,18 @@
 - [Userモデルにuse HasCsvImportsを追加](#addtraits)
 - [使い方](#usage)
   - [コンポーネントを利用するbladeビューの準備](#bladeview)
-  - [CSV Importerコンポーネントについて](#csvcomponent)
-  - [Buttonコンポーネントについて](#aboutbladecomponent)
-  - [TALLスタック利用のプロジェクトで使う場合](#in-tall-stack-project)
-  - [TALLスタック以外のプロジェクトで使う場合](#in-none-tall-stack-project)
-  - [キュー（Queues）の使用](#using-queues)
-- [テスト](#test)
-- [変更履歴](#changelog)
-- [貢献方法](#contribution)
-- [セキュリティ](#security)
-- [このパッケージのアイデアについて](#ideas)
-- [作成者一覧](#credits)
-- [ライセンス](#license)
+  - [CSV Importerコンポーネントについて](#csv-importerコンポーネントについて)
+  - [Buttonコンポーネントについて](#buttonコンポーネントについて)
+  - [TALLスタック利用のプロジェクトで使う場合](#tallスタック利用のプロジェクトで使う場合)
+  - [TALLスタック以外のプロジェクトで使う場合](#tallスタック以外のプロジェクトで使う場合)
+  - [キュー（Queues）の使用](#キューqueuesの使用)
+- [テスト](#テスト)
+- [変更履歴](#変更履歴)
+- [貢献方法](#貢献方法)
+- [セキュリティ](#セキュリティに関して)
+- [このパッケージのアイデアについて](#このパッケージのアイデアについて)
+- [作成者一覧](#作成者一覧)
+- [ライセンス](#ライセンス)
 
 <a name="aboutthispackage"></a>
 ## このパッケージについて
@@ -302,7 +302,7 @@ http://localhost:8000
 <br><br>
 データが読み込まれます。大量のデータでも捌いてくれます👍
 
-
+<a name="bladeview"></a>
 <a name=“csvcomponent”></a>
 ### CSV Importerコンポーネントについて
 CSVファイルをインポートするための`CSV Importer`コンポーネントをbladeファイルに組み込むためには下記のようにします。ここでは`id`, `name`, `email`, `password`のフィールドを持つモデル（例として：YourModel::class）において、バリデーション対象フィールドとして`id`, `name`, `email`を、それぞれの読み込み時のラベルとして”ID”、”名前”、”メアド”、”パスワード”を指定する例を記載しております：
