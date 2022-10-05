@@ -3,9 +3,10 @@
 
 # Livewire-CSVパッケージについて
 ## **現在バグフィックス中(そこそこ動くけど)**
-- [このパッケージについて](#このパッケージについて)
+- [このパッケージについて](#aboutthispackage)
 - [インストール方法](#installation)
 - [使用準備](#configuration)
+- [Userモデルにuse HasCsvImportsを追加](#addtraits)
 - [使い方](#usage)
   - [コンポーネントを利用するbladeビューの準備](#createbladeview)
   - [CSV Importerコンポーネントについて](#csv-importer-component)
@@ -21,6 +22,7 @@
 - [作成者一覧](#credits)
 - [ライセンス](#license)
 
+<a name="aboutthispackage"></a>
 ## このパッケージについて
 __Livewire CSV__ はLaravel [Livewire](https://laravel-livewire.com)を使ってお手軽にCSVをインポート出来るように出来ています。
 
@@ -35,9 +37,33 @@ composer require askdkc/livewire-csv
 <a name="configuration"></a>
 ## 使用準備
 
+`.env`ファイルの修正
+
+ここではお手軽にパッケージを試す`.env`の設定例を記載します。適宜自分の環境に合わせて調整してください
+
+```vim
+.envファイル
+
+---before---
+DB_CONNECTION=mysql
+------------
+↓
+---after----
+DB_CONNECTION=sqlite
+------------
+
+---before---
+QUEUE_CONNECTION=sync
+------------
+↓
+---after----
+QUEUE_CONNECTION=database
+------------
+```
+
 CSVインポート機能に必要なDBテーブル用のマイグレーションファイルを次のコマンドで自動生成し、マイグレーションを実行します:
 
-```sh
+```bash
 php artisan vendor:publish --tag="livewire-csv-migrations"
 php artisan migrate
 ```
@@ -45,7 +71,6 @@ php artisan migrate
 CSVのインポート時にはLaravelのキュー(queue)機能を使うので、それ用のマイグレーションも以下の手順で実行しておきます:
 
 ```bash
-php artisan queue:table
 php artisan queue:batches-table
 php artisan migrate
 ```
@@ -87,7 +112,7 @@ return [
 ];
 ```
 
- `layout` オプションはCSSの選択肢となりますが、今のところ`tailwindcss`しか使えないので弄らないでください。将来別のCSSでこのパッケージ用のblade.phpを作った時にはここを変更するだけで切り替え可能に😏
+`layout` オプションはCSSの選択肢となりますが、今のところ`tailwindcss`しか使えないので弄らないでください。将来別のCSSでこのパッケージ用のblade.phpを作った時にはここを変更するだけで切り替え可能に😏
 
 `file_upload_size` はアップロードされるCSVファイルの最大サイズのバリデーションに使われます(初期値は約20MB)。Livewireを使っているので[livewire config](https://github.com/livewire/livewire/blob/master/config/livewire.php#L100) ファイルを変更して対応させることも可能です
 
@@ -99,11 +124,13 @@ php artisan vendor:publish --tag="livewire-csv-views"
 
 > このコマンドを実行する前に[こちらの説明](#in-tall-stack-project) もお読みください
 
+<a name="addtraits"></a>
 ## Userモデルに `use HasCsvImports` を追加
 
 このパッケージを動作させるためにはUserモデルにHasCsvImportsをインポートして使う必要があります
 
- `app/Models/User.php` を開いて、次のように編集してください:
+`app/Models/User.php`を開いて、次のように編集してください:
+
 ```php
 <?php
 
@@ -111,23 +138,171 @@ namespace App\Models;
 
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
-use Askdkc\LivewireCsv\Concerns\HasCsvImports; // add
-...
+use Askdkc\LivewireCsv\Concerns\HasCsvImports; // 追加
+
+（中略）
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable, HasCsvImports; // add HasCsvImports here
+    use HasApiTokens, HasFactory, Notifiable, HasCsvImports; // ここにHasCsvImportsを追加
     
 ```
 
 <a name="usage"></a>
 ## 使い方
 
-<a name=“createbladeview”></a>
 ### コンポーネントを利用するbladeビューの準備
+
 CSVをインポートする`CSV Importer`コンポーネントはLivewireで作られているため、最初にLivewireが使えるビューファイルを準備します。また、CSVインポートに使用されるパッケージが認証されたユーザによる実行にのみ対応しているため、Laravelのログイン認証機能と併せて使える画面を用意するため、ここでは`laravel/breeze`を利用した例を記載します
 
-(準備中)
+下記のコマンドでLaravel Breezeをインストール
+
+```bash
+composer require laravel/breeze --dev
+php artisan breeze:install
+```
+
+今回のビューで使うモデル（Post）も作っておきます
+```bash
+php artisan make:model -m Post
+```
+
+エディターで次のファイルを編集します
+```vim
+resources/views/layouts/app.blade.php
+
+(13行目付近)
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @livewireStyles //追加
+  
+（中略）
+  
+(33行目付近)
+          </main>
+      </div>
+      @livewireScripts //追加
+  </body>
+```
+
+もう一つ
+
+```vim
+resources/views/dashboard.blade.php
+
+(12行目付近)
+    You're logged in! //　これを消す
+    <x-csv-button>Import</x-csv-button> // 代わりにこれを追加
+
+（中略）
+  
+(16行目付近)
+    </div>
+    // この下を追加
+    <livewire:csv-importer :model="App\Models\Post::class"
+                            :columns-to-map="['title', 'body']"
+                            :required-columns="['title', 'body']"
+                            :columns-label="[
+                                'title' => 'タイトル',
+                                'body' => '本文',
+                            ]" />
+    // ここまで
+</x-app-layout>
+```
+
+上記でCSV Importerコンポーネントで利用するPostモデルは次のように準備しておきます
+```vim
+app/Models/Post.php
+---before---
+class Post extends Model
+{
+    use HasFactory;
+}
+------------
+↓
+---after---
+class Post extends Model
+{
+    use HasFactory;
+
+    protected $fillable = ['title', 'body']; // 追加
+}
+-----------
+```
+
+マイグレーションファイルも準備
+
+```vim
+database/migrations/yyyy_mm_dd_hhmmss_create_posts_table.php
+
+---before---
+public function up()
+{
+    Schema::create('posts', function (Blueprint $table) {
+        $table->id();
+        $table->timestamps();
+    });
+}
+------------
+↓
+---after---
+public function up()
+{
+    Schema::create('posts', function (Blueprint $table) {
+        $table->id();
+        $table->string('title'); // 追加
+        $table->text('body'); // 追加
+        $table->timestamps();
+    });
+}
+-----------
+```
+
+マイグレーションを実行します
+
+```bash
+php artisan migrate
+```
+
+Viteを起動
+
+```bash
+npm run dev
+```
+
+さらに別のTerminalでLaravel起動
+
+```bash
+php artisan serve
+```
+
+さらに別のTerminalでLaravelのキューを稼働
+
+```
+php artisan queue:work
+```
+
+ブラウザで下記にアクセスします
+[http://localhost:8000](http://localhost:8000)
+<br><br>
+右上のRegisterからユーザ登録します
+<img width="1253" alt="image" src="https://user-images.githubusercontent.com/7894265/194009152-a6463e3a-9dd8-4505-b9a5-f7653f89011e.png">
+<br><br>
+この辺は適当に入力
+<img width="1253" alt="image" src="https://user-images.githubusercontent.com/7894265/194009290-b41db021-469f-4024-bb02-7f774997c3a0.png">
+<br><br>
+インポートをクリックします
+<img width="1288" alt="image" src="https://user-images.githubusercontent.com/7894265/194009470-e3a829a0-187e-48eb-a00f-b26382ae9ab6.png">
+<br><br>
+右側からニョッキりLivewireのインポート用CSV Importerコンポーネントが顔を出します👀
+<img width="1288" alt="image" src="https://user-images.githubusercontent.com/7894265/194009938-c9aabfe6-616d-4551-8259-265328da98ea.png">
+<br><br>
+こんな感じでファイルをドラッグ＆ドロップして項目を指定し、Importボタンをクリックします
+<img width="1288" alt="image" src="https://user-images.githubusercontent.com/7894265/194011805-d46db40e-e994-4de9-a98c-fa3880ab3a41.png">
+<br><br>
+データが読み込まれます。大量のデータでも捌いてくれます👍
+
+
+## 以下は各パーツごとの詳細です
 
 <a name=“csv-importer-component”></a>
 ### CSV Importerコンポーネントについて
