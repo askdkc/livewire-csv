@@ -210,7 +210,7 @@ resources/views/dashboard.blade.php
     <livewire:csv-importer :model="App\Models\Post::class"
                             :columns-to-map="['title', 'body']"
                             :required-columns="['title', 'body']"
-                            :columns-label="[
+                            :column-labels="[
                                 'title' => 'タイトル',
                                 'body' => '本文',
                             ]" />
