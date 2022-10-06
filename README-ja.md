@@ -80,9 +80,9 @@ php artisan queue:table
 php artisan queue:batches-table
 php artisan migrate
 ```
-> **注意**
+> **注意** <br>
 > 既存のプロジェクトに追加時はqueue:tableが既に存在している場合もあるので重複に注意してください
-
+<br>
 このパッケージ用の設定ファイルは下記のコマンドで出力してカスタマイズ可能です:
 
 ```bash
