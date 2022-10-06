@@ -76,6 +76,7 @@ php artisan migrate
 CSVのインポート時にはLaravelのキュー(queue)機能を使うので、それ用のマイグレーションも以下の手順で実行しておきます:
 
 ```bash
+php artisan queue:table
 php artisan queue:batches-table
 php artisan migrate
 ```
