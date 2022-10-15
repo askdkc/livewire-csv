@@ -9,6 +9,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Collection;
 
 class ImportCsv implements ShouldQueue
 {
@@ -40,10 +41,10 @@ class ImportCsv implements ShouldQueue
         // swap user specified csv data fields to actual database column names
         foreach($this->chunk as $data)
         {
-            $temprow = collect();
+            $temprow = new Collection();
             foreach ($this->columns as $key => $value)
             {
-                $temprow->push([$key => $data[$value]]);
+                $temprow->push([$key => $data[$value] ?? null]);
             }
             $importData[] = $temprow->collapse()->toArray();
         }
