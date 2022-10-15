@@ -301,8 +301,41 @@ it('created customers records is following user specified data fields', function
     ->set('file', $file)
     ->set('columnsToMap', [
         'id' => 'id',
-        'first_name' => 'last_name', // This is intentionally for this test
-        'last_name' => 'first_name', // This is intentionally for this test
+        'first_name' => 'last_name', // This is intentional for this test
+        'last_name' => 'first_name', // This is intentional for this test
+        'email' => 'email',
+    ])
+    ->call('import')
+    ->assertEmitted('imports.refresh')
+    ->assertHasNoErrors();
+
+    $import = Import::forModel(Customer::class);
+
+    $this->assertEquals(Import::count(), 1);
+    $this->assertEquals($import->count(), 1);
+    $this->assertEquals(Customer::count(), 1000);
+    $this->assertEquals($import->first()->processed_rows, 1000);
+
+    $this->assertEquals(Customer::first()->first_name, "Ondricka");
+});
+
+it('can handled none required column even when column is empty', function () {
+    $file = UploadedFile::fake()
+        ->createWithContent(
+            'customers.csv',
+            file_get_contents('stubs/customers.csv', true)
+        );
+
+    $model = Customer::class;
+
+    livewire(CsvImporter::class, [
+        'model' => $model,
+    ])
+    ->set('file', $file)
+    ->set('columnsToMap', [
+        'id' => '', // This is intentional for this test
+        'first_name' => 'last_name', 
+        'last_name' => 'first_name',
         'email' => 'email',
     ])
     ->call('import')
