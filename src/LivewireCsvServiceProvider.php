@@ -23,7 +23,6 @@ class LivewireCsvServiceProvider extends PackageServiceProvider
             ->name('livewire-csv')
             ->hasConfigFile('livewire_csv')
             ->hasAssets()
-            ->hasTranslations()
             ->hasViews('livewire-csv')
             ->hasMigration('create_csv_imports_table');
     }
