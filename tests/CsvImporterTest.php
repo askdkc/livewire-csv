@@ -286,6 +286,39 @@ it('creates customers records on top of csv file', function () {
     $this->assertEquals($import->first()->processed_rows, 1000);
 });
 
+it('created customers records is following user specified data fields', function () {
+    $file = UploadedFile::fake()
+        ->createWithContent(
+            'customers.csv',
+            file_get_contents('stubs/customers.csv', true)
+        );
+
+    $model = Customer::class;
+
+    livewire(CsvImporter::class, [
+        'model' => $model,
+    ])
+    ->set('file', $file)
+    ->set('columnsToMap', [
+        'id' => 'id',
+        'first_name' => 'last_name', // This is intentionally for this test
+        'last_name' => 'first_name', // This is intentionally for this test
+        'email' => 'email',
+    ])
+    ->call('import')
+    ->assertEmitted('imports.refresh')
+    ->assertHasNoErrors();
+
+    $import = Import::forModel(Customer::class);
+
+    $this->assertEquals(Import::count(), 1);
+    $this->assertEquals($import->count(), 1);
+    $this->assertEquals(Customer::count(), 1000);
+    $this->assertEquals($import->first()->processed_rows, 1000);
+
+    $this->assertEquals(Customer::first()->first_name, "Ondricka");
+});
+
 it('toggles import button', function () {
     $model = Customer::class;
 
