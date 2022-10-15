@@ -2,7 +2,6 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/askdkc/livewire-csv.svg?style=flat-square)](https://packagist.org/packages/askdkc/livewire-csv)
 
 # Livewire-CSVパッケージについて
-## **現在バグフィックス中(そこそこ動くけど)**
 - [このパッケージについて](#このパッケージについて)
 - [インストール方法](#インストール方法)
 - [使用準備](#使用準備)
