@@ -126,13 +126,12 @@ Using this package is a breeze. To implmenent the importer in your project, simp
 
 ```blade
     <livewire:csv-importer :model="App\Models\YourModel::class"
-                            :columns-to-map="['id', 'name', 'email', 'password']"
+                            :columns-to-map="['id', 'name', 'email']"
                             :required-columns="['id', 'name', 'email']"
                             :column-labels="[
                                 'id' => 'ID',
                                 'name' => 'Name',
                                 'email' => 'Email Address',
-                                'password' => 'Password',
                             ]"/>
 ```
 
