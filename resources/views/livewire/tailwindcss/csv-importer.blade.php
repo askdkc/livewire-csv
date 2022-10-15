@@ -69,17 +69,17 @@
                                 {{-- If file uloaded --}}
                                 @if ($fileHeaders)
                                     <div class="mt-8">
-                                        <h2 class="font-medium">Match columns</h2>
+                                        <h2 class="font-medium">{{ __('Match columns')}}</h2>
 
                                         <div class="mt-4 space-y-5">
                                             @foreach ($columnsToMap as $column => $value)
                                                 <div class="grid grid-cols-4 gap-4 items-start">
                                                     <label for="{{ $column }}" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2 col-span-1">
-                                                        {{ $columnLabels[$column] ?? ucfirst(str_replace(['_', '-'], ' ', $column)) }}*
+                                                        {{ $columnLabels[$column] ?? ucfirst(str_replace(['_', '-'], ' ', $column)) }}<span class="text-red-600 font-bold text-sm">{{ in_array('columnsToMap.' . $column, array_keys($requiredColumns)) ? '*': ''}}</span>
                                                     </label>
                                                     <div class="mt-1 sm:mt-0 sm:col-span-3">
                                                         <select wire:model.defer="columnsToMap.{{$column}}" type="text" name="{{ $column }}" id="{{ $column }}" class="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md">
-                                                            <option value="">{{ __('Select a column') }}</option>
+                                                            <option value="">{{ __('Select a column or keep if not required') }}</option>
                                                             @foreach ($fileHeaders as $fileHeader)
                                                                 <option value="{{$fileHeader}}">{{ $fileHeader }}</option>
                                                             @endforeach
@@ -104,7 +104,7 @@
                         </div>
 
                         <div class="flex flex-shrink-0 justify-end px-4 py-4">
-                            <button type="submit" class="ml-4 inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:opacity-50" {{ $fileRowCount === 0 ? 'disabled': ''}}>Import</button>
+                            <button type="submit" class="ml-4 inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:opacity-50" {{ $fileRowCount === 0 ? 'disabled': ''}}>{{ __('Import') }}</button>
                         </div>
                     </form>
                 </div>

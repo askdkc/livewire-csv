@@ -2,13 +2,14 @@
 
 namespace Askdkc\LivewireCsv\Jobs;
 
-use Askdkc\LivewireCsv\Models\Import;
 use Illuminate\Bus\Batchable;
 use Illuminate\Bus\Queueable;
+use Illuminate\Support\Collection;
+use Askdkc\LivewireCsv\Models\Import;
+use Illuminate\Queue\SerializesModels;
+use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Queue\SerializesModels;
 
 class ImportCsv implements ShouldQueue
 {
@@ -40,10 +41,10 @@ class ImportCsv implements ShouldQueue
         // swap user specified csv data fields to actual database column names
         foreach($this->chunk as $data)
         {
-            $temprow = collect();
+            $temprow = new Collection;
             foreach ($this->columns as $key => $value)
             {
-                $temprow->push([$key => $data[$value]]);
+                $temprow->push([$key => $data[$value] ?? null]);
             }
             $importData[] = $temprow->collapse()->toArray();
         }
