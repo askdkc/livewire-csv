@@ -43,7 +43,7 @@ class ImportCsv implements ShouldQueue
             $temprow = collect();
             foreach ($this->columns as $key => $value)
             {
-                $temprow->push([$key => $data[$value]]);
+                $temprow->push([$key => $data[$value] ?? null]);
             }
             $importData[] = $temprow->collapse()->toArray();
         }
