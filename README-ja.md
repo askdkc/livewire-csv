@@ -311,27 +311,27 @@ http://localhost:8000
 
 
 ### CSV Importerコンポーネントについて
-CSVファイルをインポートするための`CSV Importer`コンポーネントをbladeファイルに組み込むためには下記のようにします。ここでは`id`, `name`, `email`, `password`のフィールドを持つモデル（例として：YourModel::class）において、バリデーション対象フィールドとして`id`, `name`, `email`を、それぞれの読み込み時のラベルとして”ID”、”名前”、”メアド”、”パスワード”を指定する例を記載しております：
+CSVファイルをインポートするための`CSV Importer`コンポーネントをbladeファイルに組み込むためには下記のようにします。ここでは`id`, `name`, `email`のフィールドを持つモデル（例として：YourModel::class）において、バリデーション対象フィールドとして`id`, `name`, `email`を、それぞれの読み込み時のラベルとして”ID”、”名前”、”メアド”を指定する例を記載しております：
 
 ```blade
     <livewire:csv-importer :model="App\Models\YourModel::class"
-                            :columns-to-map="['id', 'name', 'email', 'password']"
+                            :columns-to-map="['id', 'name', 'email']"
                             :required-columns="['id', 'name', 'email']"
                             :columns-label="[
                                 'id' => 'ID',
                                 'name' => '名前',
                                 'email' => 'メアド',
-                                'password' => 'パスワード',
                             ]"/>
 ```
 
-| プロパティ  | 型  |  説明  |
-|---|---|---|
-|  :model |`string` | インポートしたいModelを指定します  |
-|  :columns-to-map |`array` | DBテーブル上のカラムをここに書きます |
-|  :required-columns |`array` | インポート時にバリデーションするカラムをここに書きます  |
-| :columns-label  |`array` |  必須カラムのラベルを記載します  |
+| プロパティ  | 型  | 説明                                                    |
+|---|---|-------------------------------------------------------|
+|  :model |`string` | インポートしたいModelをフルパスで指定します                              |
+|  :columns-to-map |`array` | DBテーブル上のカラムをここに書きます                                   |
+|  :required-columns |`array` | インポート時にバリデーションするカラムをここに書きます（columns-to-mapと同様にしてください） |
+| :columns-label  |`array` | 必須カラムのラベルを記載します                                       |
 
+>**備考：** 既に登録があるデータIDのデータをアップロードすると、対象データは上書き更新され、IDの未登録なデータは新規追加されます(Upsert)
 
 ### Buttonコンポーネントについて
 Buttonコンポーネントは`CSV Importer`コンポーネントを表示させるのに使われます。このコンポーネントは `alpinejs` を使用しています。このボタンをビューの中で使うにはbladeファイルに `x-csv-button` コンポーネントを下記のように記載します
