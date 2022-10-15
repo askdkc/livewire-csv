@@ -35,8 +35,21 @@ class ImportCsv implements ShouldQueue
      */
     public function handle()
     {
+        $importData = [];
+
+        // swap user specified csv data fields to actual database column names
+        foreach($this->chunk as $data)
+        {
+            $temprow = collect();
+            foreach ($this->columns as $key => $value)
+            {
+                $temprow->push([$key => $data[$value]]);
+            }
+            $importData[] = $temprow->collapse()->toArray();
+        }
+
         $affectedRows = $this->model::upsert(
-            $this->chunk,
+            $importData,
             ['id'],
             collect($this->columns)->diff(['id'])->keys()->toArray(),
         );
