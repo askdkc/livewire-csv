@@ -28,7 +28,7 @@ class LivewireCsvServiceProvider extends PackageServiceProvider
             ->hasMigration('create_csv_imports_table');
     }
 
-    public function bootingPackage()
+    public function bootingPackage(): void
     {
         $this->registerLivewireComponents();
 
@@ -37,7 +37,7 @@ class LivewireCsvServiceProvider extends PackageServiceProvider
         $this->registerBladeDirectives();
     }
 
-    public function registeringPackage()
+    public function registeringPackage(): void
     {
         $this->app->bind('livewire-csv', fn () => new LivewireCsvManager);
     }
