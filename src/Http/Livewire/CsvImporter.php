@@ -4,7 +4,7 @@ namespace Askdkc\LivewireCsv\Http\Livewire;
 
 use Askdkc\LivewireCsv\Concerns;
 use function Askdkc\LivewireCsv\csv_view_path;
-use Askdkc\LivewireCsv\Facades\LaravelCsv;
+use Askdkc\LivewireCsv\Facades\LivewireCsv;
 use Askdkc\LivewireCsv\Jobs\ImportCsv;
 use Askdkc\LivewireCsv\Utilities\ChunkIterator;
 use Illuminate\Support\Facades\Bus;
@@ -91,7 +91,7 @@ class CsvImporter extends Component
     public function render()
     {
         return view(csv_view_path('csv-importer'), [
-            'fileSize' => LaravelCsv::formatFileSize(
+            'fileSize' => LivewireCsv::formatFileSize(
                 config('livewire_csv.file_upload_size', 20000)
             ),
         ]);

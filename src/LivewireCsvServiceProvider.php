@@ -43,7 +43,7 @@ class LivewireCsvServiceProvider extends PackageServiceProvider
     }
 
     /**
-     * Configure Laravel CSV Blade components
+     * Configure Livewire CSV Blade components
      *
      * @return void
      */
@@ -80,7 +80,7 @@ class LivewireCsvServiceProvider extends PackageServiceProvider
     }
 
     /**
-     * Register laravel CSV blade directives
+     * Register Livewire CSV blade directives
      *
      * @return void
      */

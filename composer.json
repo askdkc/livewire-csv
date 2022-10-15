@@ -68,7 +68,7 @@
                 "Askdkc\\LivewireCsv\\LivewireCsvServiceProvider"
             ],
             "aliases": {
-                "LaravelCsv": "Askdkc\\LivewireCsv\\Facades\\LivewireCsv"
+                "LivewireCsv": "Askdkc\\LivewireCsv\\Facades\\LivewireCsv"
             }
         }
     },
