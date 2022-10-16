@@ -84,7 +84,7 @@ class LivewireCsvServiceProvider extends PackageServiceProvider
      *
      * @return void
      */
-    protected function registerBladeDirectives()
+    protected function registerBladeDirectives(): void
     {
         Blade::directive('csvStyles', [LivewireCsvDirectives::class, 'csvStyles']);
         Blade::directive('csvScripts', [LivewireCsvDirectives::class, 'csvScripts']);
