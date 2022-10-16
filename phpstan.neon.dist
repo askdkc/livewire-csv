@@ -12,7 +12,7 @@ parameters:
     checkModelProperties: true
     checkMissingIterableValueType: false
     checkGenericClassInNonGenericObjectType: false
-    ignoreErrors:
-        - '#Internal error: Internal error: Target class \[livewire-csv\] does not exist.*#'
-        - '#Internal error: Internal error: Target class \[livewire\] does not exist.#'
+    excludePaths:
+    - src/Http/Livewire/CsvImporter.php
+
 
