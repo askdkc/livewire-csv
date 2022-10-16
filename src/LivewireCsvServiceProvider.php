@@ -61,10 +61,8 @@ class LivewireCsvServiceProvider extends PackageServiceProvider
      */
     protected function registerLivewireComponents(): void
     {
-        /** @phpstan-ignore-next-line */
         Livewire::component('csv-importer', CsvImporter::class);
 
-        /** @phpstan-ignore-next-line */
         Livewire::component('handle-imports', HandleImports::class);
     }
 
