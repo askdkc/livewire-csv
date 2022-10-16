@@ -12,7 +12,8 @@ parameters:
     checkModelProperties: true
     checkMissingIterableValueType: false
     checkGenericClassInNonGenericObjectType: false
-    excludePaths:
-    - src/Http/Livewire/CsvImporter.php
+    bootstrapFiles:
+        - classAliases.php
+    
 
 
