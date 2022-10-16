@@ -2,16 +2,18 @@
 
 namespace Askdkc\LivewireCsv\Http\Livewire;
 
-use Askdkc\LivewireCsv\Concerns;
-use function Askdkc\LivewireCsv\csv_view_path;
-use Askdkc\LivewireCsv\Facades\LivewireCsv;
-use Askdkc\LivewireCsv\Jobs\ImportCsv;
-use Askdkc\LivewireCsv\Utilities\ChunkIterator;
-use Illuminate\Support\Facades\Bus;
-use Illuminate\Support\MessageBag;
-use Illuminate\Validation\Validator;
 use Livewire\Component;
+
 use Livewire\WithFileUploads;
+use Askdkc\LivewireCsv\Concerns;
+use Illuminate\Support\Collection;
+use Illuminate\Support\MessageBag;
+use Illuminate\Support\Facades\Bus;
+use Illuminate\Validation\Validator;
+use Askdkc\LivewireCsv\Jobs\ImportCsv;
+use Askdkc\LivewireCsv\Facades\LivewireCsv;
+use function Askdkc\LivewireCsv\csv_view_path;
+use Askdkc\LivewireCsv\Utilities\ChunkIterator;
 
 class CsvImporter extends Component
 {
@@ -54,7 +56,7 @@ class CsvImporter extends Component
         'toggle',
     ];
 
-    public function mount()
+    public function mount(): void
     {
         // map and coverts the columnsToMap property into an associative array
         $this->columnsToMap = $this->mapThroughColumns();
@@ -63,7 +65,7 @@ class CsvImporter extends Component
         $this->requiredColumns = $this->mapThroughRequiredColumns();
     }
 
-    public function updatedFile()
+    public function updatedFile(): void
     {
         $this->validateOnly('file');
 
@@ -72,7 +74,7 @@ class CsvImporter extends Component
         $this->resetValidation();
     }
 
-    public function import()
+    public function import(): void
     {
         $this->validate();
 
@@ -83,12 +85,12 @@ class CsvImporter extends Component
         $this->emitTo('csv-imports', 'imports.refresh');
     }
 
-    public function toggle()
+    public function toggle(): void
     {
         $this->open = ! $this->open;
     }
 
-    public function render()
+    public function render(): Object
     {
         return view(csv_view_path('csv-importer'), [
             'fileSize' => LivewireCsv::formatFileSize(
@@ -97,41 +99,42 @@ class CsvImporter extends Component
         ]);
     }
 
-    protected function validationAttributes()
+    protected function validationAttributes(): Array
     {
         return $this->columnLabels;
     }
 
-    protected function rules()
+    protected function rules(): Array
     {
         return [
             'file' => 'required|file|mimes:csv,txt|max:'.config('livewire_csv.file_upload_size', '20000'),
         ] + $this->requiredColumns;
     }
 
-    protected function setCsvProperties()
+    protected function setCsvProperties(): Array
     {
         if (! $this->handleCsvProperties() instanceof MessageBag) {
             return [
                 $this->fileHeaders,
                 $this->fileRowCount
             ] = $this->handleCsvProperties();
-        }
+        } 
 
-        $this->withValidator(function (Validator $validator) {
+        return $this->withValidator(function (Validator $validator) {
             $validator->after(function ($validator) {
                 $validator->errors()->merge(
-                    $this->handleCsvProperties()->getMessages()
+                   $this->handleCsvProperties()->getMessages()
                 );
             });
         })->validate();
     }
 
-    protected function importCsv()
+    protected function importCsv(): void
     {
         $import = $this->createNewImport();
         $chunks = (new ChunkIterator($this->csvRecords->getIterator(), 10))->get();
 
+        /** @phpstan-ignore-next-line */
         $jobs = collect($chunks)
                     ->map(
                         fn ($chunk) => new ImportCsv(
@@ -149,7 +152,7 @@ class CsvImporter extends Component
                     )->dispatch();
     }
 
-    protected function createNewImport()
+    protected function createNewImport(): Object
     {
         /**
          * @var \Askdkc\LivewireCsv\Tests\Models\User */
