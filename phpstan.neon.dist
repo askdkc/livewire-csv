@@ -13,6 +13,6 @@ parameters:
     checkMissingIterableValueType: false
     checkGenericClassInNonGenericObjectType: false
     ignoreErrors:
-        - '#Internal error: Internal error: Target class [livewire-csv] does not exist.#'
+        - '#Internal error: Internal error: Target class *livewire-csv* does not exist.#'
         - '#Internal error: Internal error: Target class \[livewire\] does not exist.#'
 
