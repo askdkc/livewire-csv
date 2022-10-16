@@ -1,6 +1,6 @@
 {
     "name": "askdkc/livewire-csv",
-    "description": "A Laravel livewire CSV Importer, to handle importing millions of rows without a hustle.",
+    "description": "A Laravel livewire CSV Importer, to handle importing millions of rows without a hustle. / Laravelにお手軽にCSVインポート機能を追加する凄いやつだよ🚀",
     "keywords": [
         "laravel",
         "livewire-csv",
