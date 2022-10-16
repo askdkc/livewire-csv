@@ -28,7 +28,7 @@ class LivewireCsvServiceProvider extends PackageServiceProvider
             ->hasMigration('create_csv_imports_table');
     }
 
-    public function bootingPackage()
+    public function bootingPackage(): void
     {
         $this->registerLivewireComponents();
 
@@ -37,7 +37,7 @@ class LivewireCsvServiceProvider extends PackageServiceProvider
         $this->registerBladeDirectives();
     }
 
-    public function registeringPackage()
+    public function registeringPackage(): void
     {
         $this->app->bind('livewire-csv', fn () => new LivewireCsvManager);
     }
@@ -61,10 +61,8 @@ class LivewireCsvServiceProvider extends PackageServiceProvider
      */
     protected function registerLivewireComponents(): void
     {
-        /** @phpstan-ignore-next-line */
         Livewire::component('csv-importer', CsvImporter::class);
 
-        /** @phpstan-ignore-next-line */
         Livewire::component('handle-imports', HandleImports::class);
     }
 
@@ -84,7 +82,7 @@ class LivewireCsvServiceProvider extends PackageServiceProvider
      *
      * @return void
      */
-    protected function registerBladeDirectives()
+    protected function registerBladeDirectives(): void
     {
         Blade::directive('csvStyles', [LivewireCsvDirectives::class, 'csvStyles']);
         Blade::directive('csvScripts', [LivewireCsvDirectives::class, 'csvScripts']);
