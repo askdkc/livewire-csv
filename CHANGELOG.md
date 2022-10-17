@@ -1,5 +1,16 @@
 # Changelog
 
+## v1.0.4 - 2022-10-17
+
+### What's Changed
+
+- Fixed phpstan error by @askdkc in https://github.com/askdkc/livewire-csv/pull/8
+- Update LivewireCsvServiceProvider.php by @askdkc in https://github.com/askdkc/livewire-csv/pull/7
+- Fixed phpstan errors by @askdkc in https://github.com/askdkc/livewire-csv/pull/9
+- Added how to change menu lang to Japanese by @askdkc in https://github.com/askdkc/livewire-csv/pull/10
+
+**Full Changelog**: https://github.com/askdkc/livewire-csv/compare/v1.0.3...v1.0.4
+
 ## v1.0.3 - 2022-10-15
 
 ### What's Changed
