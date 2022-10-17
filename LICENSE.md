@@ -1,11 +1,11 @@
 The MIT License (MIT)
 
-Copyright (c) askdkc <askdkc@gmail.com>
+Copyright (c) 2022 askdkc <askdkc@gmail.com>
 
 The major design pattern of this package was abstracted from Coderflex's [Coderflexx/laravel-csv](https://github.com/coderflexx/laravel-csv)
 which is subject to the same license.
 
-Copyright (c) Coderflex <oussama@coderflex.com>
+Copyright (c) 2022 Coderflex <oussama@coderflex.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
