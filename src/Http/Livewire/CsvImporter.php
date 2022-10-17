@@ -134,7 +134,7 @@ class CsvImporter extends Component
         $import = $this->createNewImport();
         $chunks = (new ChunkIterator($this->csvRecords->getIterator(), 10))->get();
 
-        /** @phpstan-ignore-next-line */
+        /** @var array<array> $chunks */
         $jobs = collect($chunks)
                     ->map(
                         fn ($chunk) => new ImportCsv(
