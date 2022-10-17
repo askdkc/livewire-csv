@@ -8,6 +8,7 @@
 - [Userモデルにuse HasCsvImportsを追加](#userモデルに-use-hascsvimports-を追加)
 - [使い方](#使い方)
   - [コンポーネントを利用するbladeビューの準備](#コンポーネントを利用するbladeビューの準備)
+- [日本語化](#日本語化)
 - [細かな説明](#細かな説明)
   - [CSV Importerコンポーネントについて](#csv-importerコンポーネントについて)
   - [Buttonコンポーネントについて](#buttonコンポーネントについて)
@@ -309,6 +310,19 @@ http://localhost:8000
 <img width="1288" alt="image" src="https://user-images.githubusercontent.com/7894265/194011805-d46db40e-e994-4de9-a98c-fa3880ab3a41.png">
 <br><br>
 データが読み込まれます。大量のデータでも捌いてくれます👍
+
+## 日本語化
+そのままだと各種メニューは英語表記なので、configを修正して日本語化しましょう
+```vim
+config/app.php
+---before---
+    'locale' => 'en',
+------------
+↓
+---after---
+    'locale' => 'ja',
+-----------
+```
 
 ## 細かな説明
 
