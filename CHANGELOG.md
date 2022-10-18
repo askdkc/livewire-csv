@@ -1,5 +1,20 @@
 # Changelog
 
+## v1.0.5 - 2022-10-18
+
+### What's Changed
+
+- Create LICENSE by @askdkc in https://github.com/askdkc/livewire-csv/pull/11
+- Bump actions/checkout from 2 to 3 by @dependabot in https://github.com/askdkc/livewire-csv/pull/12
+- Add fix for phpstan collection type check by @askdkc in https://github.com/askdkc/livewire-csv/pull/13
+- Update README-ja.md by @askdkc in https://github.com/askdkc/livewire-csv/pull/14
+
+### New Contributors
+
+- @dependabot made their first contribution in https://github.com/askdkc/livewire-csv/pull/12
+
+**Full Changelog**: https://github.com/askdkc/livewire-csv/compare/v1.0.4...v1.0.5
+
 ## v1.0.4 - 2022-10-17
 
 ### What's Changed
