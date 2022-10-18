@@ -209,9 +209,10 @@ resources/views/dashboard.blade.php
     </div>
     // この下を追加
     <livewire:csv-importer :model="App\Models\Post::class"
-                            :columns-to-map="['title', 'body']"
+                            :columns-to-map="['id','title', 'body']"
                             :required-columns="['title', 'body']"
                             :column-labels="[
+                                'id' => 'ID',
                                 'title' => 'タイトル',
                                 'body' => '本文',
                             ]" />
@@ -332,7 +333,7 @@ CSVファイルをインポートするための`CSV Importer`コンポーネン
 ```blade
     <livewire:csv-importer :model="App\Models\YourModel::class"
                             :columns-to-map="['id', 'name', 'email']"
-                            :required-columns="['id', 'name', 'email']"
+                            :required-columns="['name', 'email']"
                             :columns-label="[
                                 'id' => 'ID',
                                 'name' => '名前',
@@ -342,12 +343,14 @@ CSVファイルをインポートするための`CSV Importer`コンポーネン
 
 | プロパティ  | 型  | 説明                                                    |
 |---|---|-------------------------------------------------------|
-|  :model |`string` | インポートしたいModelをフルパスで指定します                              |
-|  :columns-to-map |`array` | DBテーブル上のカラムをここに書きます                                   |
-|  :required-columns |`array` | インポート時にバリデーションするカラムをここに書きます（columns-to-mapと同様にしてください） |
-| :columns-label  |`array` | 必須カラムのラベルを記載します                                       |
+|  :model |`string` | インポートしたいModelをフルパスで指定します         |
+|  :columns-to-map |`array` | DBテーブル上のインポートさせたいデータカラムをここに書きます    |
+|  :required-columns |`array` | インポート時に必須バリデーションするカラムをここに書きます |
+| :columns-label  |`array` | カラムのラベルを記載します     |
 
 >**備考：** 既に登録があるデータIDのデータをアップロードすると、対象データは上書き更新され、IDの未登録なデータは新規追加されます(Upsert)
+>
+> また、IDを持たないモデル(複合キーとか)については未対応なため、Laravelで通常使われるid項目ありのデータでのご利用をお願いします
 
 ### Buttonコンポーネントについて
 Buttonコンポーネントは`CSV Importer`コンポーネントを表示させるのに使われます。このコンポーネントは `alpinejs` を使用しています。このボタンをビューの中で使うにはbladeファイルに `x-csv-button` コンポーネントを下記のように記載します
