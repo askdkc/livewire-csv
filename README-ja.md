@@ -25,7 +25,7 @@
 
 
 ## このパッケージについて
-__Livewire CSV__ はLaravel [Livewire](https://laravel-livewire.com)を使ってお手軽にCSVをインポート出来るように出来ています。
+__Livewire CSV__ はLaravel [Livewire](https://laravel-livewire.com)を使ってお手軽にCSVをインポート出来るように出来ています。それと元々のCodecourseで紹介されてたコードやそれを元に作られたパッケージのバグを潰してあります💪
 
 
 ## インストール方法
