@@ -22,7 +22,7 @@
 - [License](#license)
 
 ## Introduction
-__Livewire CSV__ Package is a package created on top of Laravel [livewire](https://laravel-livewire.com) for easily handling imports with a simple API.
+__Livewire CSV__ Package is a package created on top of Laravel [livewire](https://laravel-livewire.com) for easily handling imports with a simple API. And added some bug fixes to original Codecourse code and package.
 
 ## Installation
 
