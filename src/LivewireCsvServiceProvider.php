@@ -2,6 +2,7 @@
 
 namespace Askdkc\LivewireCsv;
 
+use Askdkc\LivewireCsv\Commands\LiveSetupCommand;
 use Askdkc\LivewireCsv\Http\Livewire\CsvImporter;
 use Askdkc\LivewireCsv\Http\Livewire\HandleImports;
 use Illuminate\Support\Facades\Blade;
@@ -21,6 +22,7 @@ class LivewireCsvServiceProvider extends PackageServiceProvider
          */
         $package
             ->name('livewire-csv')
+            ->hasCommand(LiveSetupCommand::class)
             ->hasConfigFile('livewire_csv')
             ->hasAssets()
             ->hasTranslations()
