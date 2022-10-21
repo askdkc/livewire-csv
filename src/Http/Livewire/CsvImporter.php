@@ -2,6 +2,7 @@
 
 namespace Askdkc\LivewireCsv\Http\Livewire;
 
+use Illuminate\Support\Str;
 use Livewire\Component;
 
 use Livewire\WithFileUploads;
@@ -99,26 +100,31 @@ class CsvImporter extends Component
         ]);
     }
 
-    protected function validationAttributes(): Array
+    protected function validationAttributes(): array
     {
-        return $this->columnLabels;
+        $columnMessage = new Collection();
+        foreach ($this->requiredColumns as $key => $col)
+        {
+            $columnMessage->push([$key => $this->columnLabels[Str::after($key, 'columnsToMap.')] ?? Str::after($key, 'columnsToMap.')]);
+        }
+        return $columnMessage->collapse()->toArray();
     }
 
-    protected function rules(): Array
+    protected function rules(): array
     {
         return [
             'file' => 'required|file|mimes:csv,txt|max:'.config('livewire_csv.file_upload_size', '20000'),
         ] + $this->requiredColumns;
     }
 
-    protected function setCsvProperties(): Array
+    protected function setCsvProperties(): array
     {
         if (! $this->handleCsvProperties() instanceof MessageBag) {
             return [
                 $this->fileHeaders,
                 $this->fileRowCount
             ] = $this->handleCsvProperties();
-        } 
+        }
 
         return $this->withValidator(function (Validator $validator) {
             $validator->after(function ($validator) {
