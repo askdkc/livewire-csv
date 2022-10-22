@@ -6,6 +6,7 @@
 # About This Package
 - [Introduction](#introduction)
 - [Installation](#installation)
+- [Setup Command](#setup-command)
 - [Configuration](#configuration)
 - [Usage](#usage)
   - [CSV Importer Component](#csv-importer-component)
@@ -32,7 +33,84 @@ You can install the package via composer:
 composer require askdkc/livewire-csv
 ```
 
-## Configuration
+## Setup Command
+
+You can run `livecsv-setup` command to publish nessesary migration files for this packkage.
+
+```bash
+php artisan livecsv-setup
+```
+
+This command, after publishes files, ask you to run the migration for you. If you want to run the migration by youself then just answer no. Otherwise, type "yes" to run the migration.
+
+This command also ask you to star this repo. If you don't mind helping me, please star the repo. (Thanks in advance)
+
+
+## Add `use HasCsvImports` to your User Model
+
+You need to implement HasCsvImports to your User model.
+
+Open `app/Models/User.php` and edit like below:
+```php
+<?php
+
+namespace App\Models;
+
+use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Notifications\Notifiable;
+use Askdkc\LivewireCsv\Concerns\HasCsvImports; // add
+...
+
+class User extends Authenticatable
+{
+    use HasApiTokens, HasFactory, Notifiable, HasCsvImports; // add HasCsvImports here
+    
+```
+
+## Usage
+
+### CSV Importer Component
+Using this package is easy. To implmenent the importer in your project, simply include the following component inside a Blade view.
+
+```blade
+    <livewire:csv-importer :model="App\Models\YourModel::class"
+                            :columns-to-map="['id', 'name', 'email']"
+                            :required-columns="['id', 'name', 'email']"
+                            :column-labels="[
+                                'id' => 'ID',
+                                'name' => 'Name',
+                                'email' => 'Email Address',
+                            ]"/>
+```
+
+| Props  | Type  |  Description  |
+|---|---|---|
+|  model |`string` | Fully qualified name of the model you wish to import to  |
+|  columns-to-map |`array` | Column names in the target database table |
+|  required-columns |`array` | Columns that are required by validation for import  |
+| columns-label  |`array` |  Display labels for the required columns  |
+
+### Button Component
+The Component uses `alpinejs` under the hood. To display an import button, include the `x-csv-button` component.
+
+```blade
+<x-csv-button>Import</x-csv-button>
+```
+
+To style the button, use the `class` attribute with Tailwind utility classes.
+
+```blade
+<x-csv-button 
+        class="rounded py-2 px-3 bg-indigo-500 ..."
+        type="button"
+        ....>
+    {{ __('Import') }}
+</x-csv-button>
+```
+
+### Manual Configuration
+
+If you are not using `livecsv-setup` command, follow these steps to manually configure package setup process.
 
 Publish and run the migrations with:
 
@@ -98,67 +176,6 @@ php artisan vendor:publish --tag="livewire-csv-views"
 
 > Before Using this command, please take a look at this [section](#in-tall-stack-project) below.
 
-## Add `use HasCsvImports` to your User Model
-
-You need to implement HasCsvImports to your User model.
-
-Open `app/Models/User.php` and edit like below:
-```php
-<?php
-
-namespace App\Models;
-
-use Laravel\Sanctum\HasApiTokens;
-use Illuminate\Notifications\Notifiable;
-use Askdkc\LivewireCsv\Concerns\HasCsvImports; // add
-...
-
-class User extends Authenticatable
-{
-    use HasApiTokens, HasFactory, Notifiable, HasCsvImports; // add HasCsvImports here
-    
-```
-
-## Usage
-
-### CSV Importer Component
-Using this package is a breeze. To implmenent the importer in your project, simply include the following component inside a Blade view.
-
-```blade
-    <livewire:csv-importer :model="App\Models\YourModel::class"
-                            :columns-to-map="['id', 'name', 'email']"
-                            :required-columns="['id', 'name', 'email']"
-                            :column-labels="[
-                                'id' => 'ID',
-                                'name' => 'Name',
-                                'email' => 'Email Address',
-                            ]"/>
-```
-
-| Props  | Type  |  Description  |
-|---|---|---|
-|  model |`string` | Fully qualified name of the model you wish to import to  |
-|  columns-to-map |`array` | Column names in the target database table |
-|  required-columns |`array` | Columns that are required by validation for import  |
-| columns-label  |`array` |  Display labels for the required columns  |
-
-### Button Component
-The Component uses `alpinejs` under the hood. To display an import button, include the `x-csv-button` component.
-
-```blade
-<x-csv-button>Import</x-csv-button>
-```
-
-To style the button, use the `class` attribute with Tailwind utility classes.
-
-```blade
-<x-csv-button 
-        class="rounded py-2 px-3 bg-indigo-500 ..."
-        type="button"
-        ....>
-    {{ __('Import') }}
-</x-csv-button>
-```
 ### In TALL stack project
 If you are using this package in a [TALL Stack](https://tallstack.dev/) project, (Tailwindcss, Alpinejs, Laravel, Livewire) publish the vendor views to include livewire-csv in your project.
 
