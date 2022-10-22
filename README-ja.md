@@ -10,6 +10,8 @@
   - [コンポーネントを利用するbladeビューの準備](#コンポーネントを利用するbladeビューの準備)
 - [日本語化](#日本語化)
 - [細かな説明](#細かな説明)
+  - [手動でマイグレーションファイルを準備する方法](#手動でマイグレーションファイルを準備する方法)
+  - [configファイルのカスタマイズ](#configファイルのカスタマイズ)
   - [CSV Importerコンポーネントについて](#csv-importerコンポーネントについて)
   - [Buttonコンポーネントについて](#buttonコンポーネントについて)
   - [TALLスタック利用のプロジェクトで使う場合](#tallスタック利用のプロジェクトで使う場合)
@@ -67,71 +69,18 @@ QUEUE_CONNECTION=database
 ------------
 ```
 
-CSVインポート機能に必要なDBテーブル用のマイグレーションファイルを次のコマンドで自動生成し、マイグレーションを実行します:
+### セットアップコマンドの実行
+
+以下のコマンドを実行すると必要なマイグレーションファイルおよび日本語版バリデーションファイルが自動生成されます：
 
 ```bash
-php artisan vendor:publish --tag="livewire-csv-migrations"
-php artisan migrate
+php artisan livecsv-setup
 ```
 
-CSVのインポート時にはLaravelのキュー(queue)機能を使うので、それ用のマイグレーションも以下の手順で実行しておきます:
+必要なマイグレーションファイルが準備された後は、そのままマイグレーションを実行してよいか聞いてきますので、問題ないなら"yes"を、自分で実行されたい場合には"no"を選んでください
 
-```bash
-php artisan queue:table
-php artisan queue:batches-table
-php artisan migrate
-```
-> **注意** <br>
-> 既存のプロジェクトに追加時はqueue:tableが既に存在している場合もあるので重複に注意してください
-<br>
-このパッケージ用の設定ファイルは下記のコマンドで出力してカスタマイズ可能です:
+最後に「このGitHubリポジトリをスターしてね」と頼んで来ますので、良かったらスターください（励みになります）👍
 
-```bash
-php artisan vendor:publish --tag="livewire-csv-config"
-```
-
-出力された設定ファイルは下記のような内容です:
-
-```php
-
-return [
-
-    /*
-    |--------------------------------------------------------------------------
-    | Default Layout
-    |--------------------------------------------------------------------------
-    |
-    | This package plans on supporting multiple CSS frameworks. 
-    | Currently, 'tailwindcss' is the default and only supported framework.
-    |
-    */
-    'layout' => 'tailwindcss',
-
-    /*
-    |--------------------------------------------------------------------------
-    | Max Upload File Size
-    |--------------------------------------------------------------------------
-    |
-    | The default maximumum file size that can be imported by this
-    | package is 20MB. If you wish to increase/decrease this value, 
-    | change the value in KB below.
-    |
-    */
-    'file_upload_size' => 20000,
-];
-```
-
-`layout` オプションはCSSの選択肢となりますが、今のところ`tailwindcss`しか使えないので弄らないでください。将来別のCSSでこのパッケージ用のblade.phpを作った時にはここを変更するだけで切り替え可能に😏
-
-`file_upload_size` はアップロードされるCSVファイルの最大サイズのバリデーションに使われます(初期値は約20MB)。Livewireを使っているので[livewire config](https://github.com/livewire/livewire/blob/master/config/livewire.php#L100) ファイルを変更して対応させることも可能です
-
-オプションとして、CSVインポート用の画面のデザインを下記コマンドを実行して出力されるファイルから行うことができます
-
-```bash
-php artisan vendor:publish --tag="livewire-csv-views"
-```
-
-> このコマンドを実行する前に[こちらの説明](#in-tall-stack-project) もお読みください
 
 <a name="addtraits"></a>
 ## Userモデルに `use HasCsvImports` を追加
@@ -326,6 +275,76 @@ config/app.php
 ```
 
 ## 細かな説明
+
+### 手動でマイグレーションファイルを準備する方法
+
+`livecsv-setup`コマンドを使わない場合、CSVインポート機能に必要なDBテーブル用のマイグレーションファイルは次のコマンドで自動生成させた後にマイグレーションを実行することも可能です:
+
+```bash
+php artisan vendor:publish --tag="livewire-csv-migrations"
+php artisan migrate
+```
+
+CSVのインポート時にはLaravelのキュー(queue)機能を使うので、それ用のマイグレーションも以下の手順で実行しておきます:
+
+```bash
+php artisan queue:table
+php artisan queue:batches-table
+php artisan migrate
+```
+> **注意** <br>
+> 既存のプロジェクトに追加時はqueue:tableが既に存在している場合もあるので重複に注意してください
+
+### configファイルのカスタマイズ
+
+このパッケージ用の設定ファイルは下記のコマンドで出力してカスタマイズ可能です:
+
+```bash
+php artisan vendor:publish --tag="livewire-csv-config"
+```
+
+出力された設定ファイルは下記のような内容です:
+
+```php
+
+return [
+
+    /*
+    |--------------------------------------------------------------------------
+    | Default Layout
+    |--------------------------------------------------------------------------
+    |
+    | This package plans on supporting multiple CSS frameworks. 
+    | Currently, 'tailwindcss' is the default and only supported framework.
+    |
+    */
+    'layout' => 'tailwindcss',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Max Upload File Size
+    |--------------------------------------------------------------------------
+    |
+    | The default maximumum file size that can be imported by this
+    | package is 20MB. If you wish to increase/decrease this value, 
+    | change the value in KB below.
+    |
+    */
+    'file_upload_size' => 20000,
+];
+```
+
+`layout` オプションはCSSの選択肢となりますが、今のところ`tailwindcss`しか使えないので弄らないでください。将来別のCSSでこのパッケージ用のblade.phpを作った時にはここを変更するだけで切り替え可能に😏
+
+`file_upload_size` はアップロードされるCSVファイルの最大サイズのバリデーションに使われます(初期値は約20MB)。Livewireを使っているので[livewire config](https://github.com/livewire/livewire/blob/master/config/livewire.php#L100) ファイルを変更して対応させることも可能です
+
+オプションとして、CSVインポート用の画面のデザインを下記コマンドを実行して出力されるファイルから行うことができます
+
+```bash
+php artisan vendor:publish --tag="livewire-csv-views"
+```
+
+> このコマンドを実行する前に[こちらの説明](#tallスタック利用のプロジェクトで使う場合) もお読みください
 
 ### CSV Importerコンポーネントについて
 CSVファイルをインポートするための`CSV Importer`コンポーネントをbladeファイルに組み込むためには下記のようにします。ここでは`id`, `name`, `email`のフィールドを持つモデル（例として：YourModel::class）において、バリデーション対象フィールドとして`id`, `name`, `email`を、それぞれの読み込み時のラベルとして”ID”、”名前”、”メアド”を指定する例を記載しております：
