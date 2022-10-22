@@ -6,6 +6,7 @@
 # About This Package
 - [Introduction](#introduction)
 - [Installation](#installation)
+- [Setup Command](#setup-command)
 - [Configuration](#configuration)
 - [Usage](#usage)
   - [CSV Importer Component](#csv-importer-component)
