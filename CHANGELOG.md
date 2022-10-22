@@ -1,5 +1,22 @@
 # Changelog
 
+## v1.1.0 - 2022-10-22
+
+### New Feature
+
+#### Set Up command has been added
+
+Now you can use setup command to smoothly publish package migration files and validation error message file of which translated in Japanese
+
+### What's Changed
+
+- Added script for better test by @askdkc in https://github.com/askdkc/livewire-csv/pull/15
+- This PR adds Setup Command for easy package setup by @askdkc in https://github.com/askdkc/livewire-csv/pull/16
+- Fixed validation messages by @askdkc in https://github.com/askdkc/livewire-csv/pull/17
+- Readme update: Include Setup Command by @askdkc in https://github.com/askdkc/livewire-csv/pull/18
+
+**Full Changelog**: https://github.com/askdkc/livewire-csv/compare/v1.0.5...v1.1.0
+
 ## v1.0.5 - 2022-10-18
 
 ### What's Changed
