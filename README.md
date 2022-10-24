@@ -25,6 +25,9 @@
 ## Introduction
 __Livewire CSV__ Package is a package created on top of Laravel [livewire](https://laravel-livewire.com) for easily handling imports with a simple API. And added some bug fixes to original Codecourse code and package.
 
+![csvimport](https://user-images.githubusercontent.com/7894265/197446526-dea415cb-eca9-4b3e-bd37-d4ea53ea5ed4.gif)
+
+
 ## Installation
 
 You can install the package via composer:
