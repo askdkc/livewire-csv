@@ -46,7 +46,7 @@ class LiveSetupCommand extends Command
             $this->call('migrate');
         }
 
-        if ($this->confirm("Would you like to star our repo on GitHub? \n GitHubリポジトリにスターの御協力をお願いします🙏")) {
+        if ($this->confirm("Would you like to star our repo on GitHub? \n GitHubリポジトリにスターの御協力をお願いします🙏", true)) {
             $repoUrl = "https://github.com/askdkc/livewire-csv";
 
             if (PHP_OS_FAMILY == 'Darwin') {
@@ -58,6 +58,8 @@ class LiveSetupCommand extends Command
             if (PHP_OS_FAMILY == 'Linux') {
                 exec("xdg-open {$repoUrl}");
             }
+            
+            $this->line('Thank you! / ありがとう💓');
         }
     }
 
