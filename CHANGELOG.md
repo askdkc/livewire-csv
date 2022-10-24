@@ -1,5 +1,14 @@
 # Changelog
 
+## v1.1.1 - 2022-10-24
+
+### What's Changed
+
+- Changed Gimme Star Message by @askdkc in https://github.com/askdkc/livewire-csv/pull/19
+- Added demo gif file by @askdkc in https://github.com/askdkc/livewire-csv/pull/20
+
+**Full Changelog**: https://github.com/askdkc/livewire-csv/compare/v1.1.0...v1.1.1
+
 ## v1.1.0 - 2022-10-22
 
 ### New Feature
