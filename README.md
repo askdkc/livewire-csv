@@ -1,5 +1,8 @@
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/askdkc/livewire-csv.svg?style=flat-square)](https://packagist.org/packages/askdkc/livewire-csv)
+[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/askdkc/livewire-csv/run-tests?label=tests)](https://github.com/askdkc/livewire-csv/actions?query=workflow%3Arun-tests+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/askdkc/livewire-csv.svg?style=flat-square)](https://packagist.org/packages/askdkc/livewire-csv)
+
+
 
 # [日本語ReadMeはこちら](/README-ja.md)
 
