@@ -1,5 +1,14 @@
 # Changelog
 
+## v1.1.2 - 2022-10-30
+
+### What's Changed
+
+- Add php 8.2 support for test by @askdkc in https://github.com/askdkc/livewire-csv/pull/21
+- Change PHP Support Ver from 8.1 to 8.0.2 by @askdkc in https://github.com/askdkc/livewire-csv/pull/22
+
+**Full Changelog**: https://github.com/askdkc/livewire-csv/compare/v1.1.1...v1.1.2
+
 ## v1.1.1 - 2022-10-24
 
 ### What's Changed
