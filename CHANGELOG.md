@@ -1,5 +1,13 @@
 # Changelog
 
+## v1.1.3 - 2022-11-06
+
+### What's Changed
+
+- Fix SetUp command not publishing some lang files and Add Tests by @askdkc in https://github.com/askdkc/livewire-csv/pull/23
+
+**Full Changelog**: https://github.com/askdkc/livewire-csv/compare/v1.1.2...v1.1.3
+
 ## v1.1.2 - 2022-10-30
 
 ### What's Changed
