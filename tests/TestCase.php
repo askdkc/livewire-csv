@@ -13,7 +13,7 @@ use Orchestra\Testbench\TestCase as Orchestra;
 class TestCase extends Orchestra
 {
     protected $fakeClient = null;
-    
+
     protected function setUp(): void
     {
         parent::setUp();
@@ -55,5 +55,17 @@ class TestCase extends Orchestra
         Livewire::component('handle-imports', HandleImports::class);
 
         return $this;
+    }
+
+    public function migrationExists(string $filename): Bool
+    {
+        $path = database_path('migrations/');
+        $files = scandir($path);
+        $pos = false;
+        foreach ($files as $value) {
+            $pos = strpos($value, $filename);
+            if($pos !== false) return true;
+        }
+        return false;
     }
 }
