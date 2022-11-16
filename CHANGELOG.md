@@ -1,5 +1,14 @@
 # Changelog
 
+## v1.1.4 - 2022-11-16
+
+### What's Changed
+
+- Bump dependabot/fetch-metadata from 1.3.4 to 1.3.5 by @dependabot in https://github.com/askdkc/livewire-csv/pull/24
+- Add japanese translation by @askdkc in https://github.com/askdkc/livewire-csv/pull/26
+
+**Full Changelog**: https://github.com/askdkc/livewire-csv/compare/v1.1.3...v1.1.4
+
 ## v1.1.3 - 2022-11-06
 
 ### What's Changed
