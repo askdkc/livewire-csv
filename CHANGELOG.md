@@ -1,5 +1,14 @@
 # Changelog
 
+## v1.1.5 - 2022-11-18
+
+### What's Changed
+
+- Update ja.json to add more Japanese Translations by @askdkc in https://github.com/askdkc/livewire-csv/pull/27
+- Fix some minor issues and improved handling CSV import by @askdkc in https://github.com/askdkc/livewire-csv/pull/28
+
+**Full Changelog**: https://github.com/askdkc/livewire-csv/compare/v1.1.4...v1.1.5
+
 ## v1.1.4 - 2022-11-16
 
 ### What's Changed
