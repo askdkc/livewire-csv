@@ -4,7 +4,9 @@
     "keywords": [
         "laravel",
         "livewire-csv",
-        "Livewire"
+        "Livewire",
+        "csv",
+        "import"
     ],
     "homepage": "https://github.com/askdkc/livewire-csv",
     "license": "MIT",
