@@ -30,12 +30,12 @@
                                         }"
                                         x-on:dragover.prevent="dropping = true"
                                         x-on:dragleave.prevent="dropping = false"
-                                        x-on:drop.prevent="dropping = false"
+                                        x-on:drop="dropping = false"
                                         x-on:drop.prevent="handleDrop($event)"
                                         x-data="{
                                             dropping: false,
 
-                                            handleDrop(e) {
+                                            handleDrop(event) {
                                                 @this.upload('file', event.dataTransfer.files[0])
                                             }
                                         }"
