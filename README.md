@@ -162,11 +162,11 @@ return [
     |--------------------------------------------------------------------------
     |
     | The default maximumum file size that can be imported by this
-    | package is 20MB. If you wish to increase/decrease this value, 
+    | package is 100MB. If you wish to increase/decrease this value, 
     | change the value in KB below.
     |
     */
-    'file_upload_size' => 20000,
+    'file_upload_size' => 102400,
 ];
 ```
 
