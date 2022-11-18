@@ -330,17 +330,17 @@ return [
     |--------------------------------------------------------------------------
     |
     | The default maximumum file size that can be imported by this
-    | package is 20MB. If you wish to increase/decrease this value, 
+    | package is 100MB. If you wish to increase/decrease this value, 
     | change the value in KB below.
     |
     */
-    'file_upload_size' => 20000,
+    'file_upload_size' => 102400,
 ];
 ```
 
 `layout` オプションはCSSの選択肢となりますが、今のところ`tailwindcss`しか使えないので弄らないでください。将来別のCSSでこのパッケージ用のblade.phpを作った時にはここを変更するだけで切り替え可能に😏
 
-`file_upload_size` はアップロードされるCSVファイルの最大サイズのバリデーションに使われます(初期値は約20MB)。Livewireを使っているので[livewire config](https://github.com/livewire/livewire/blob/master/config/livewire.php#L100) ファイルを変更して対応させることも可能です
+`file_upload_size` はアップロードされるCSVファイルの最大サイズのバリデーションに使われます(初期値は約100MB)。Livewireを使っているので[livewire config](https://github.com/livewire/livewire/blob/master/config/livewire.php#L100) ファイルを変更して対応させることも可能です
 
 オプションとして、CSVインポート用の画面のデザインを下記コマンドを実行して出力されるファイルから行うことができます
 
