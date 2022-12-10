@@ -20,6 +20,11 @@ trait InteractsWithCsvFiles
         $csv->setHeaderOffset(0)
             ->skipEmptyRecords();
 
+        // Check File Type
+        if(config('livewire_csv.file_type') === 'tsv') {
+            $csv->setDelimiter("\t");
+        }
+
         return $csv;
     }
 }
