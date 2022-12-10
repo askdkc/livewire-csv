@@ -5,7 +5,7 @@
         <div class="absolute inset-0 overflow-hidden">
             <div class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10 sm:pl-16">
                 <div class="pointer-events-auto w-screen max-w-md">
-                    <form wire:submit.prevent="import" class="flex h-full flex-col divide-y divide-gray-200 bg-white shadow-xl">
+                    <form wire:submit.prevent="import" class="flex h-full flex-col divide-y divide-gray-200 bg-white shadow-xl overflow-y-auto">
                         <div class="py-6 px-4 sm:px-6">
                             <div class="flex items-center justify-between">
                                 <h2 class="text-lg font-medium">{{ __('Import') }}</h2>
