@@ -24,6 +24,7 @@ it('sees migration and lang files after running setup command', function () {
     $this->assertTrue($this->migrationExists('csv_imports_table'));
     $this->assertTrue($this->migrationExists('create_jobs_table'));
     $this->assertTrue($this->migrationExists('create_csv_imports_table'));
+    $this->assertFileExists(config_path('livewire_csv.php'));
     $this->assertFileExists(lang_path('ja/validation.php'));
     $this->assertFileExists(lang_path('ja.json'));
 });

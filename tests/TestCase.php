@@ -25,6 +25,17 @@ class TestCase extends Orchestra
         );
 
         $this->registerLivewireComponents();
+
+        // コマンドが出力したファイルがテスト前に残っていたら消す
+        if (is_dir(__DIR__.'/../vendor/orchestra/testbench-core/laravel/lang/ja')) {
+            unlink(__DIR__.'/../vendor/orchestra/testbench-core/laravel/lang/ja.json');
+            unlink(__DIR__.'/../vendor/orchestra/testbench-core/laravel/lang/ja/validation.php');
+            rmdir(__DIR__.'/../vendor/orchestra/testbench-core/laravel/lang/ja');
+        }
+
+        if(is_file(__DIR__.'/../vendor/orchestra/testbench-core/laravel/configlivewire_csv.php')) {
+            unlink(__DIR__.'/../vendor/orchestra/testbench-core/laravel/configlivewire_csv.php');
+        }
     }
 
     protected function getPackageProviders($app)
