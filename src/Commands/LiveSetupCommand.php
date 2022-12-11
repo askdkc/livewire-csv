@@ -38,6 +38,11 @@ class LiveSetupCommand extends Command
         (new Filesystem)->ensureDirectoryExists(lang_path());
         (new Filesystem)->copyDirectory(__DIR__.'/../../resources/lang/stub', lang_path());
 
+        $this->comment('Publishing Config file... / 設定ファイルを出力します');
+        $this->call('vendor:publish', [
+            '--tag' => 'livewire-csv-config',
+        ]);
+
         $this->info("Done! / 完了!");
 
         if ($this->confirm('Would you like to run the migrations now? / マイグレーションを実行しますか?')) {
@@ -58,7 +63,7 @@ class LiveSetupCommand extends Command
             if (PHP_OS_FAMILY == 'Linux') {
                 exec("xdg-open {$repoUrl}");
             }
-            
+
             $this->line('Thank you! / ありがとう💓');
         }
     }
