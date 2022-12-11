@@ -1,5 +1,16 @@
 # Changelog
 
+## v1.2.0 - 2022-12-11
+
+### What's Changed
+
+- Bump ramsey/composer-install from 1 to 2 by @dependabot in https://github.com/askdkc/livewire-csv/pull/29
+- Add TSV support by @askdkc in https://github.com/askdkc/livewire-csv/pull/30
+- Fix to scroll when upload csv that has many items by @askdkc in https://github.com/askdkc/livewire-csv/pull/31
+- Update SetUp command by @askdkc in https://github.com/askdkc/livewire-csv/pull/32
+
+**Full Changelog**: https://github.com/askdkc/livewire-csv/compare/v1.1.5...v1.2.0
+
 ## v1.1.5 - 2022-11-18
 
 ### What's Changed
