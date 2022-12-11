@@ -75,7 +75,7 @@ QUEUE_CONNECTION=database
 
 ## セットアップコマンドの実行
 
-以下のコマンドを実行すると必要なマイグレーションファイルおよび日本語版バリデーションファイルが自動生成されます：
+以下のコマンドを実行すると必要なマイグレーションファイル、configファイルおよび日本語版バリデーションファイルが自動生成されます：
 
 ```bash
 php artisan livecsv-setup
@@ -323,6 +323,16 @@ return [
     |
     */
     'layout' => 'tailwindcss',
+    
+    /*
+    |--------------------------------------------------------------------------
+    | Default File Type
+    |--------------------------------------------------------------------------
+    |
+    | If you change file_type to tsv, it can handle tsv files.
+    |
+    */
+    'file_type' => 'csv',
 
     /*
     |--------------------------------------------------------------------------
@@ -339,6 +349,8 @@ return [
 ```
 
 `layout` オプションはCSSの選択肢となりますが、今のところ`tailwindcss`しか使えないので弄らないでください。将来別のCSSでこのパッケージ用のblade.phpを作った時にはここを変更するだけで切り替え可能に😏
+
+`file_type` オプションはアップロードするファイルがCSVかTSVかを指定します。デフォルトはCSVですが、TSVにしたい場合は`tsv`に変更してください
 
 `file_upload_size` はアップロードされるCSVファイルの最大サイズのバリデーションに使われます(初期値は約100MB)。Livewireを使っているので[livewire config](https://github.com/livewire/livewire/blob/master/config/livewire.php#L100) ファイルを変更して対応させることも可能です
 
