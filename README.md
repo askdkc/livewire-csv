@@ -10,7 +10,6 @@
 - [Introduction](#introduction)
 - [Installation](#installation)
 - [Setup Command](#setup-command)
-- [Configuration](#configuration)
 - [Usage](#usage)
   - [CSV Importer Component](#csv-importer-component)
   - [Button Component](#button-component)
@@ -41,7 +40,7 @@ composer require askdkc/livewire-csv
 
 ## Setup Command
 
-You can run `livecsv-setup` command to publish nessesary migration files for this packkage.
+You can run `livecsv-setup` command to publish nessesary migration files and config file for this packkage.
 
 ```bash
 php artisan livecsv-setup
@@ -155,6 +154,16 @@ return [
     |
     */
     'layout' => 'tailwindcss',
+    
+    /*
+    |--------------------------------------------------------------------------
+    | Default File Type
+    |--------------------------------------------------------------------------
+    |
+    | If you change file_type to tsv, it can handle tsv files.
+    |
+    */
+    'file_type' => 'csv',
 
     /*
     |--------------------------------------------------------------------------
@@ -171,6 +180,8 @@ return [
 ```
 
 The `layout` option is for choosing which CSS framework you are using and currently supports only `tailwindcss`. We are working on other CSS frameworks to implement in the future.
+
+The `file_type` option is for choosing either CSV or TSV file. If your file is TSV type, change this to `tsv`.
 
 The `file_upload_size` is for validation rules, and it defines the maximum file size of uploaded files. You may also define this value from the [livewire config](https://github.com/livewire/livewire/blob/master/config/livewire.php#L100) file.
 
