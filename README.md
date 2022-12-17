@@ -87,7 +87,7 @@ Using this package is easy. To implmenent the importer in your project, simply i
                                 'email' => 'Email Address',
                             ]"
                             :upsert-columns="['name', 'email']" // This is optional
-                            />
+                        />
 ```
 
 | Props                           | Type  | Description                                                 |
