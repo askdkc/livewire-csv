@@ -41,6 +41,9 @@ class CsvImporter extends Component
     public array $columnLabels = [];
 
     /** @var array */
+    public array $upsertColumns = [];
+
+    /** @var array */
     public array $fileHeaders = [];
 
     /** @var int */
@@ -49,7 +52,7 @@ class CsvImporter extends Component
     /** @var array */
     protected $exceptions = [
         'model', 'columnsToMap', 'open',
-        'columnLabels', 'requiredColumns',
+        'columnLabels', 'requiredColumns','upsertColumns',
     ];
 
     /** @var array */
@@ -64,6 +67,12 @@ class CsvImporter extends Component
 
         // map and coverts the requiredColumns property int key => required value
         $this->requiredColumns = $this->mapThroughRequiredColumns();
+
+        // check if user specified upsert columns
+        if(!$this->upsertColumns)
+        {
+            $this->upsertColumns = ['id'];
+        }
     }
 
     public function updatedFile(): void
@@ -147,7 +156,8 @@ class CsvImporter extends Component
                             $import,
                             $this->model,
                             $chunk,
-                            $this->columnsToMap
+                            $this->columnsToMap,
+                            $this->upsertColumns
                         )
                     );
 

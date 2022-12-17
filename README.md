@@ -85,15 +85,30 @@ Using this package is easy. To implmenent the importer in your project, simply i
                                 'id' => 'ID',
                                 'name' => 'Name',
                                 'email' => 'Email Address',
-                            ]"/>
+                            ]"
+                            :upsert-columns="['name', 'email']" // This is optional
+                        />
 ```
 
-| Props  | Type  |  Description  |
-|---|---|---|
-|  model |`string` | Fully qualified name of the model you wish to import to  |
-|  columns-to-map |`array` | Column names in the target database table |
-|  required-columns |`array` | Columns that are required by validation for import  |
-| columns-label  |`array` |  Display labels for the required columns  |
+| Props                           | Type  | Description                                                 |
+|---------------------------------|---|-------------------------------------------------------------|
+| :model                          |`string` | Fully qualified name of the model you wish to import to     |
+| :columns-to-map                 |`array` | Column names in the target database table                   |
+| :required-columns               |`array` | Columns that are required by validation for import          |
+| :columns-label                  |`array` | Display labels for the required columns                     |
+| :upsert-columns <br> (Optional) |`array` | Columns to use for upsert, without this `['id']` will be used |
+
+>**Note:** In order to use `:upsert-columns`, you need to have a "primary" or "unique" index. Without specifying `:upsert-columns`, the importer will default to using the `id` column for upserting.
+>
+> If you want to user other columns for upsert, like example above, add following index to your model's migration：
+> ```php
+>   $table->unique(['name', 'email']);
+> ```
+> If you want to use an other primary key rather than `id`, let's say `email`, you need to remove default `id` and add following index to your model's migration：
+> ```php
+>   // $table->id(); You need to remove or comment out this line because you cannot have multiple primary keys
+>   $table->string('email')->primary();
+> ``` 
 
 ### Button Component
 The Component uses `alpinejs` under the hood. To display an import button, include the `x-csv-button` component.

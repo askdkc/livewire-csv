@@ -53,6 +53,8 @@ class TestCase extends Orchestra
         $migrations = [
             include __DIR__.'/../database/migrations/create_csv_imports_table.php.stub',
             include __DIR__.'/Database/Migrations/create_customers_table.php',
+            include __DIR__.'/Database/Migrations/create_posts_table.php',
+            include __DIR__.'/Database/Migrations/create_tags_table.php',
             include __DIR__.'/Database/Migrations/create_users_table.php',
             include __DIR__.'/Database/Migrations/create_job_batches_table.php',
         ];

@@ -26,6 +26,7 @@ class ImportCsv implements ShouldQueue
         public string $model,
         public array $chunk,
         public array $columns,
+        public array $upsertColumns,
     ) {
     }
 
@@ -51,7 +52,7 @@ class ImportCsv implements ShouldQueue
 
         $affectedRows = $this->model::upsert(
             $importData,
-            ['id'],
+            $this->upsertColumns,
             collect($this->columns)->diff(['id'])->keys()->toArray(),
         );
 
