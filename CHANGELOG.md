@@ -1,5 +1,14 @@
 # Changelog
 
+## v1.3.0 - 2022-12-17
+
+### What's Changed
+
+- Add TSV mime type support for upload file by @askdkc in https://github.com/askdkc/livewire-csv/pull/33
+- Now Csv Import Component can accept upsert columns as a parameter by @askdkc in https://github.com/askdkc/livewire-csv/pull/34
+
+**Full Changelog**: https://github.com/askdkc/livewire-csv/compare/v1.2.0...v1.3.0
+
 ## v1.2.0 - 2022-12-11
 
 ### What's Changed
