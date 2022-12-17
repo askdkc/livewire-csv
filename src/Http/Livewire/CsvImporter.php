@@ -113,7 +113,7 @@ class CsvImporter extends Component
     protected function rules(): array
     {
         return [
-            'file' => 'required|file|mimes:csv,txt|max:'.config('livewire_csv.file_upload_size', '20000'),
+            'file' => 'required|file|mimes:csv,tsv,txt|max:'.config('livewire_csv.file_upload_size', '20000'),
         ] + $this->requiredColumns;
     }
 
