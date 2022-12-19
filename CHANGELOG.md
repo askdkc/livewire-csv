@@ -1,5 +1,13 @@
 # Changelog
 
+## v1.3.1 - 2022-12-19
+
+### What's Changed
+
+- Add Drop Table to migration file by @askdkc in https://github.com/askdkc/livewire-csv/pull/35
+
+**Full Changelog**: https://github.com/askdkc/livewire-csv/compare/v1.3.0...v1.3.1
+
 ## v1.3.0 - 2022-12-17
 
 ### What's Changed
