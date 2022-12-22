@@ -1,5 +1,15 @@
 # Changelog
 
+## v1.4.0 - 2022-12-22
+
+### What's Changed
+
+- Fix readme by @askdkc in https://github.com/askdkc/livewire-csv/pull/36
+- Add PHP 8.2 Test Support by @askdkc in https://github.com/askdkc/livewire-csv/pull/37
+- Add Dark Mode 🌃 by @askdkc in https://github.com/askdkc/livewire-csv/pull/39
+
+**Full Changelog**: https://github.com/askdkc/livewire-csv/compare/v1.3.1...v1.4.0
+
 ## v1.3.1 - 2022-12-19
 
 ### What's Changed
