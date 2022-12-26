@@ -6,7 +6,7 @@
             <div class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10 sm:pl-16">
                 <div class="pointer-events-auto w-screen max-w-md">
                     <form wire:submit.prevent="import" class="flex h-full flex-col divide-y divide-gray-200 bg-white shadow-xl overflow-y-auto">
-                        <div class="py-6 px-4 sm:px-6 dark:bg-gray-800">
+                        <div class="py-6 px-4 sm:px-6 dark:bg-gray-700">
                             <div class="flex items-center justify-between">
                                 <h2 class="text-lg font-medium dark:text-gray-300">{{ __('Import') }}</h2>
                                 <div class="ml-3 flex h-7 items-center">
@@ -19,8 +19,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="flex flex-1 flex-col justify-between dark:bg-gray-700">
-                            <div class="p-4 sm:p-6 dark:bg-gray-700">
+                        <div class="flex flex-1 flex-col justify-between dark:bg-gray-600">
+                            <div class="p-4 sm:p-6 dark:bg-gray-600">
                                 <div>
                                     <!-- File drop -->
                                     <div class="max-w-lg flex justify-center px-6 pt-5 pb-6 border-2 border-dashed rounded-md"
@@ -45,7 +45,7 @@
                                                 <path stroke-linecap="round" stroke-linejoin="round" d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
                                             </svg>
                                             <div class="flex text-sm text-gray-600 dark:text-gray-300">
-                                                <label for="file" class="relative cursor-pointer bg-white dark:bg-gray-700 rounded-md font-medium text-indigo-600 dark:text-cyan-300 dark:hover:text-cyan-600 hover:text-indigo-300 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500 dark:focus-within:ring-blue-300">
+                                                <label for="file" class="relative cursor-pointer bg-white dark:bg-gray-600 rounded-md font-medium text-indigo-600 dark:text-cyan-300 dark:hover:text-cyan-600 hover:text-indigo-300 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500 dark:focus-within:ring-blue-300">
                                                     <span>{{ __('Upload a file') }}</span>
                                                     <input id="file" wire:model="file" name="file" type="file" class="sr-only">
                                                 </label>
@@ -103,7 +103,7 @@
                             <livewire:handle-imports :model="$model"/>
                         </div>
 
-                        <div class="flex flex-shrink-0 justify-end px-4 py-4 dark:bg-gray-800">
+                        <div class="flex flex-shrink-0 justify-end px-4 py-4 dark:bg-gray-700">
                             <button type="submit" class="ml-4 inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:opacity-50 dark:bg-indigo-700 dark:text-white dark:hover:text-blue-300" {{ $fileRowCount === 0 ? 'disabled': ''}}>{{ __('Import') }}</button>
                         </div>
                     </form>
