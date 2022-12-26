@@ -5,10 +5,7 @@ use Askdkc\LivewireCsv\Models\Import;
 use Askdkc\LivewireCsv\Tests\Models\Post;
 use Askdkc\LivewireCsv\Tests\Models\Tag;
 use Askdkc\LivewireCsv\Tests\Models\User;
-use Illuminate\Bus\PendingBatch;
 use Illuminate\Http\UploadedFile;
-use Illuminate\Support\Facades\Bus;
-use Illuminate\Support\Facades\Storage;
 use function Pest\Livewire\livewire;
 
 beforeEach(fn () => $this->actingAs(User::factory()->create()));
@@ -49,7 +46,6 @@ it('maps requiredColumns property into columnsToMap required state', function ()
 });
 
 it('returns csv headers & row counts when upload a file', function () {
-    Storage::fake('documents');
 
     $file = UploadedFile::fake()
                     ->createWithContent(
