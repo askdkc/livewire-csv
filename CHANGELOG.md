@@ -1,5 +1,17 @@
 # Changelog
 
+## v1.4.1 - 2022-12-28
+
+### What's Changed
+
+- Add updates by @askdkc in https://github.com/askdkc/livewire-csv/pull/40
+- Update Japanese Translation
+- Add Pre-build Components Style
+- Removed Unused Parts from Test
+- Adjust Dark Mode Style
+
+**Full Changelog**: https://github.com/askdkc/livewire-csv/compare/v1.4.0...v1.4.1
+
 ## v1.4.0 - 2022-12-22
 
 ### What's Changed
