@@ -29,7 +29,7 @@
 
 
 ## このパッケージについて
-__Livewire CSV__ はLaravel [Livewire](https://laravel-livewire.com)を使ってお手軽にCSVをインポート出来るように出来ています。それと元々のCodecourseで紹介されてたコードやそれを元に作られたパッケージのバグを潰してあります💪
+__Livewire CSV__ はLaravel [Livewire](https://laravel-livewire.com)を使ってお手軽にCSVをインポート出来るように出来ています。それと元々のCodecourseで紹介されてたコードやそれを元に作られたパッケージのバグを潰してあります💪ダークモードもサポート🌃
 
 ![csvimport](https://user-images.githubusercontent.com/7894265/197446673-b9d4a151-7dc5-4763-a49b-eeb6eb0edd90.gif)
 
