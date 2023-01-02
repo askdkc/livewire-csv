@@ -151,7 +151,6 @@ it('maps through columnsLabels for validate attributes', function () {
 });
 
 it('returns csv headers & row counts when upload a file', function () {
-    Storage::fake('documents');
 
     $file = UploadedFile::fake()
                     ->createWithContent(
