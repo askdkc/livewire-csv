@@ -172,8 +172,6 @@ it('returns csv headers & row counts when upload a file', function () {
 });
 
 it('throws validation errors, if the file extension does not match', function () {
-    Storage::fake('images');
-
     $file = UploadedFile::fake()->create('image.png');
     $model = Customer::class;
 
