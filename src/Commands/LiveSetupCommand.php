@@ -34,9 +34,11 @@ class LiveSetupCommand extends Command
             $this->comment('Migration Csv Imports created successfully / Csv Importsテーブル作成');
         }
 
-        $this->comment('Adding Japanese Validation file... / 日本語のバリデーションファイルを作成します');
-        (new Filesystem)->ensureDirectoryExists(lang_path());
-        (new Filesystem)->copyDirectory(__DIR__.'/../../resources/lang/stub', lang_path());
+         if ($this->confirm('Would you like to have Japanese Translation files? / 日本語化ファイルが必要ですか?')) {
+            $this->comment('Adding Japanese Translation files... / 日本語のバリデーションファイルを作成します');
+            (new Filesystem)->ensureDirectoryExists(lang_path());
+            (new Filesystem)->copyDirectory(__DIR__.'/../../resources/lang/stub', lang_path());
+        }
 
         $this->comment('Publishing Config file... / 設定ファイルを出力します');
         $this->call('vendor:publish', [
