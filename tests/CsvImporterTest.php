@@ -7,7 +7,6 @@ use Askdkc\LivewireCsv\Tests\Models\User;
 use Illuminate\Bus\PendingBatch;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Bus;
-use Illuminate\Support\Facades\Storage;
 use function Pest\Livewire\livewire;
 
 beforeEach(fn () => $this->actingAs(User::factory()->create()));
@@ -183,7 +182,6 @@ it('throws validation errors, if the file extension does not match', function ()
 });
 
 it('throws validation errors, if the columns does not match', function () {
-    Storage::fake('documents');
 
     $columnsToMap = [
         'name', 'email', 'phone',
@@ -218,7 +216,6 @@ it('throws validation errors, if the columns does not match', function () {
 });
 
 it('ensures the imports is batched', function () {
-    Storage::fake('documents');
     Bus::fake();
 
     $file = UploadedFile::fake()
@@ -331,7 +328,7 @@ it('can handled none required column even when column is empty', function () {
     ->set('file', $file)
     ->set('columnsToMap', [
         'id' => '', // This is intentional for this test
-        'first_name' => 'last_name', 
+        'first_name' => 'last_name',
         'last_name' => 'first_name',
         'email' => 'email',
     ])
