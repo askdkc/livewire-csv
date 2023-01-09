@@ -1,5 +1,19 @@
 # Changelog
 
+## v1.5.0 - 2023-01-09
+
+### What's Changed
+
+- Update README-ja.md by @askdkc in https://github.com/askdkc/livewire-csv/pull/41
+- Fix Test1 by @askdkc in https://github.com/askdkc/livewire-csv/pull/42
+- Fix Test2 by @askdkc in https://github.com/askdkc/livewire-csv/pull/43
+- Fix Test3 by @askdkc in https://github.com/askdkc/livewire-csv/pull/44
+- Fix setup command by @askdkc in https://github.com/askdkc/livewire-csv/pull/45
+
+Now installing Japanese Translation files are optional.
+
+**Full Changelog**: https://github.com/askdkc/livewire-csv/compare/v1.4.1...v1.5.0
+
 ## v1.4.1 - 2022-12-28
 
 ### What's Changed
