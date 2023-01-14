@@ -34,10 +34,17 @@ class LiveSetupCommand extends Command
             $this->comment('Migration Csv Imports created successfully / Csv Importsテーブル作成');
         }
 
-         if ($this->confirm('Would you like to have Japanese Translation files? / 日本語化ファイルが必要ですか?')) {
-            $this->comment('Adding Japanese Translation files... / 日本語のバリデーションファイルを作成します');
-            (new Filesystem)->ensureDirectoryExists(lang_path());
-            (new Filesystem)->copyDirectory(__DIR__.'/../../resources/lang/stub', lang_path());
+         if ($this->confirm('Would you like to set your locale to Japanese? / 言語を日本語にしますか?')) {
+            $this->info('config/app.phpのlocaleをjaにします');
+            // Read the contents of the file into a string
+            $configfile = file_get_contents(base_path('config/app.php'));
+
+            // Modify the contents of the string
+            $configfile = str_replace("'locale' => 'en'", "'locale' => 'ja'", $configfile);
+            $configfile = str_replace("'faker_locale' => 'en_US'", "'faker_locale' => 'ja_JP'", $configfile);
+
+            // Save the modified contents back to the file
+            file_put_contents(base_path('config/app.php'), $configfile);
         }
 
         $this->comment('Publishing Config file... / 設定ファイルを出力します');
