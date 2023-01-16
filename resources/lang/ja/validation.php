@@ -13,6 +13,7 @@ return [
     'alpha_dash' => ':attributeはアルファベットとダッシュ(-)及び下線(_)がご利用できます。',
     'alpha_num' => ':attributeはアルファベット数字がご利用できます。',
     'array' => ':attributeは配列でなくてはなりません。',
+    'ascii' => ':attributeは半角の英数字や記号のみで指定してください。',
     'before' => ':attributeには、:dateより前の日付をご利用ください。',
     'before_or_equal' => ':attributeには、:date以前の日付をご利用ください。',
     'between' => [
@@ -27,6 +28,9 @@ return [
     'date' => ':attributeには有効な日付を指定してください。',
     'date_equals' => ':attributeには、:dateと同じ日付けを指定してください。',
     'date_format' => ':attributeは:format形式で指定してください。',
+    'decimal' => ':attributeは、小数点以下:decimal桁の数字を指定してください。',
+    'declined' => ':attributeは、拒否する指定をしてください。',
+    'declined_if' => ':attributeは、:otherが:valueの時は、拒否する指定をしてください。',
     'different' => ':attributeと:otherには、異なった内容を指定してください。',
     'digits' => ':attributeは:digits桁で指定してください。',
     'digits_between' => ':attributeは:min桁から:max桁の間で指定してください。',
@@ -117,6 +121,7 @@ return [
     'uploaded' => ':attributeのアップロードに失敗しました。',
     'uppercase' => ':attributeは、大文字のみで指定してください。',
     'url' => ':attributeに正しい形式を指定してください。',
+    'ulid' => ':attributeに有効なULIDを指定してください。',
     'uuid' => ':attributeに有効なUUIDを指定してください。',
 
     /*
@@ -133,6 +138,9 @@ return [
     'custom' => [
         '属性名' => [
             'ルール名' => 'カスタムメッセージ',
+        ],
+        'terms' => [
+            'required' => '登録には規約への同意が必須となります。',
         ],
     ],
 

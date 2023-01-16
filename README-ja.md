@@ -266,16 +266,11 @@ http://localhost:8000
 データが読み込まれます。大量のデータでも捌いてくれます👍
 
 ## 日本語化
-そのままだと各種メニューは英語表記なので、configを修正して日本語化しましょう
-```vim
-config/app.php
----before---
-    'locale' => 'en',
-------------
-↓
----after---
-    'locale' => 'ja',
------------
+セットアップコマンド実行時に下記質問が出てくるので、ここで`yes`と入力してください
+```bash
+Would you like to set your locale to Japanese? / 言語を日本語にしますか? (yes/no) [no]:
+
+↑ここでyesと入力
 ```
 
 ## 細かな説明

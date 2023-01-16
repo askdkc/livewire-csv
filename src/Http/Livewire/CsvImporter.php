@@ -60,6 +60,13 @@ class CsvImporter extends Component
         'toggle',
     ];
 
+    // This makes validation message translatable using the package's lang files
+    protected function messages(): array {
+        return [
+            'required' => trans('livewire-csv::validation.required'),
+        ];
+    }
+
     public function mount(): void
     {
         // map and coverts the columnsToMap property into an associative array
