@@ -1,5 +1,15 @@
 # Changelog
 
+## v1.6.0 - 2023-01-16
+
+### What's Changed
+
+#### Added Support for Laravel 10 🎉
+
+- Add Support for Laravel 10 by @askdkc in https://github.com/askdkc/livewire-csv/pull/48
+
+**Full Changelog**: https://github.com/askdkc/livewire-csv/compare/v1.5.1...v1.6.0
+
 ## v1.5.1 - 2023-01-16
 
 ### What's Changed
