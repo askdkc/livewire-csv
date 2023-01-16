@@ -1,5 +1,14 @@
 # Changelog
 
+## v1.5.1 - 2023-01-16
+
+### What's Changed
+
+- Bump json5 from 1.0.1 to 1.0.2 by @dependabot in https://github.com/askdkc/livewire-csv/pull/46
+- Fix to load translation from package by @askdkc in https://github.com/askdkc/livewire-csv/pull/47
+
+**Full Changelog**: https://github.com/askdkc/livewire-csv/compare/v1.5.0...v1.5.1
+
 ## v1.5.0 - 2023-01-09
 
 ### What's Changed
