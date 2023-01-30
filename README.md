@@ -29,6 +29,10 @@ __Livewire CSV__ Package is a package created on top of Laravel [livewire](https
 
 ![csvimport](https://user-images.githubusercontent.com/7894265/197446526-dea415cb-eca9-4b3e-bd37-d4ea53ea5ed4.gif)
 
+> **Note:**
+> 
+> This package uses database `UPSERT` command behind to update (or create) your data.<br>
+> Please refere to [CSV Importer Component](#csv-importer-component) for detailed description 🫡
 
 ## Installation
 

@@ -33,6 +33,11 @@ __Livewire CSV__ はLaravel [Livewire](https://laravel-livewire.com)を使って
 
 ![csvimport](https://user-images.githubusercontent.com/7894265/197446673-b9d4a151-7dc5-4763-a49b-eeb6eb0edd90.gif)
 
+> **ワンポイントアドバイス：**
+> 
+> このパッケージはDBの`upsert`機能を使ってデータを更新します<br>
+> 詳しくは[CSV Importerコンポーネントについて](#csv-importerコンポーネントについて)を参照願います🫡
+
 
 ## インストール方法
 
