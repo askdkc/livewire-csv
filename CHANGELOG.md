@@ -1,5 +1,15 @@
 # Changelog
 
+## v1.6.1 - 2023-01-30
+
+### What's Changed
+
+- Update composer.json by @askdkc in https://github.com/askdkc/livewire-csv/pull/49
+- Bump dependabot/fetch-metadata from 1.3.5 to 1.3.6 by @dependabot in https://github.com/askdkc/livewire-csv/pull/50
+- Add UPSERT note to readme by @askdkc in https://github.com/askdkc/livewire-csv/pull/51
+
+**Full Changelog**: https://github.com/askdkc/livewire-csv/compare/v1.6.0...v1.6.1
+
 ## v1.6.0 - 2023-01-16
 
 ### What's Changed
