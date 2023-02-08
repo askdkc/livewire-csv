@@ -44,7 +44,7 @@ composer require askdkc/livewire-csv
 
 ## Setup Command
 
-You can run `livecsv-setup` command to publish nessesary migration files and config file for this packkage.
+You can run `livecsv-setup` command to publish nessesary migration files and config file for this package.
 
 ```bash
 php artisan livecsv-setup
