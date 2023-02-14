@@ -1,6 +1,6 @@
 {
     "name": "askdkc/livewire-csv",
-    "description": "Add importing CSV (and TSV) data feature to your Laravel models quickly and easily / Laravelにお手軽にCSVインポート機能(TSV含む)を追加する凄いやつだよ🚀",
+    "description": "Add importing large CSV (and TSV) data feature to your Laravel models quickly and easily / Laravelにお手軽にCSVインポート機能(TSV含む、かつ大容量対応)を追加する凄いやつだよ🚀",
     "keywords": [
         "laravel",
         "livewire-csv",
