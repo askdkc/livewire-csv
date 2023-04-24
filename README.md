@@ -1,6 +1,6 @@
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/askdkc/livewire-csv.svg?style=flat-square)](https://packagist.org/packages/askdkc/livewire-csv)
-[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/askdkc/livewire-csv/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/askdkc/livewire-csv/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![Total Downloads](https://img.shields.io/packagist/dt/askdkc/livewire-csv.svg?style=flat-square)](https://packagist.org/packages/askdkc/livewire-csv)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/askdkc/livewire-csv.svg)](https://packagist.org/packages/askdkc/livewire-csv)
+[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/askdkc/livewire-csv/run-tests.yml?branch=main&label=tests)](https://github.com/askdkc/livewire-csv/actions?query=workflow%3Arun-tests+branch%3Amain)
+[![Total Downloads](https://img.shields.io/packagist/dt/askdkc/livewire-csv.svg)](https://packagist.org/packages/askdkc/livewire-csv)
 
 
 
