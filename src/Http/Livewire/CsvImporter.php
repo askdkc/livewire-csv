@@ -173,6 +173,7 @@ class CsvImporter extends Component
                     ->finally(
                         fn () => $import->touch('completed_at')
                     )->dispatch();
+        $this->emit('imports', $jobs);
     }
 
     protected function createNewImport(): Object
