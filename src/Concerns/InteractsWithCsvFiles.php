@@ -16,6 +16,7 @@ trait InteractsWithCsvFiles
     {
         $stream = fopen($path, 'r');
         $csv = Reader::createFromStream($stream);
+        $csv->setDelimiter(config('livewire_csv.set_delimiter'));
 
         $csv->setHeaderOffset(0)
             ->skipEmptyRecords();
