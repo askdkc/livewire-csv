@@ -186,6 +186,16 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Default Set Delimiter
+    |--------------------------------------------------------------------------
+    |
+    | If you change Set Delimiter to file.
+    |
+    */
+    'set_delimiter' => ',',
+
+    /*
+    |--------------------------------------------------------------------------
     | Max Upload File Size
     |--------------------------------------------------------------------------
     |
@@ -201,6 +211,8 @@ return [
 The `layout` option is for choosing which CSS framework you are using and currently supports only `tailwindcss`. We are working on other CSS frameworks to implement in the future.
 
 The `file_type` option is for choosing either CSV or TSV file. If your file is TSV type, change this to `tsv`.
+
+The `set_delimiter` option is for choosing a delimiter of your CSV file. If your file is using, for example `;` rather than `,`, then change this to `';'`.
 
 The `file_upload_size` is for validation rules, and it defines the maximum file size of uploaded files. You may also define this value from the [livewire config](https://github.com/livewire/livewire/blob/master/config/livewire.php#L100) file.
 
