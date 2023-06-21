@@ -1,5 +1,30 @@
 # Changelog
 
+## v1.6.2 - 2023-06-15
+
+### What's Changed
+
+- Add issue template by @askdkc in https://github.com/askdkc/livewire-csv/pull/52
+- fix typo by @askdkc in https://github.com/askdkc/livewire-csv/pull/53
+- Update composer.json by @askdkc in https://github.com/askdkc/livewire-csv/pull/54
+- Add phpunit ver 10 by @askdkc in https://github.com/askdkc/livewire-csv/pull/55
+- Update composer.json by @askdkc in https://github.com/askdkc/livewire-csv/pull/56
+- Add GitHub permission by @askdkc in https://github.com/askdkc/livewire-csv/pull/57
+- Update phpunit.xml.dist by @askdkc in https://github.com/askdkc/livewire-csv/pull/58
+- Update .gitignore by @askdkc in https://github.com/askdkc/livewire-csv/pull/59
+- Bump webpack from 5.75.0 to 5.76.1 by @dependabot in https://github.com/askdkc/livewire-csv/pull/60
+- Bump dependabot/fetch-metadata from 1.3.6 to 1.4.0 by @dependabot in https://github.com/askdkc/livewire-csv/pull/62
+- Round Rect by @askdkc in https://github.com/askdkc/livewire-csv/pull/61
+- Add ci option to PEST by @askdkc in https://github.com/askdkc/livewire-csv/pull/63
+- Bump dependabot/fetch-metadata from 1.4.0 to 1.5.1 by @dependabot in https://github.com/askdkc/livewire-csv/pull/64
+- add emit to CsvImporter for data passing by @algomera in https://github.com/askdkc/livewire-csv/pull/65
+
+### New Contributors
+
+- @algomera made their first contribution in https://github.com/askdkc/livewire-csv/pull/65
+
+**Full Changelog**: https://github.com/askdkc/livewire-csv/compare/v1.6.1...v1.6.2
+
 ## v1.6.1 - 2023-01-30
 
 ### What's Changed
