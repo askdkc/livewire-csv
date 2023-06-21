@@ -6,6 +6,7 @@ use Askdkc\LivewireCsv\Tests\Models\Post;
 use Askdkc\LivewireCsv\Tests\Models\Tag;
 use Askdkc\LivewireCsv\Tests\Models\User;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Config;
 use function Pest\Livewire\livewire;
 
 beforeEach(fn () => $this->actingAs(User::factory()->create()));
@@ -203,4 +204,100 @@ it('updated tag records with csv succesfully', function () {
     $this->assertEquals(Tag::where('tag_id',1)->first()->memo, "sample1");
     $this->assertEquals(Tag::where('tag_id',2)->first()->memo, "sample2");
     $this->assertEquals(Tag::where('tag_id',3)->first()->memo, "sample3");
+});
+
+
+it('read csv file as tsv', function () {
+
+    Config::set('livewire_csv.file_type', 'tsv');
+
+    $file = UploadedFile::fake()
+                    ->createWithContent(
+                        'posts.csv',
+                        file_get_contents('stubs/posts.csv', true)
+                    );
+
+    $model = Post::class;
+
+    livewire(CsvImporter::class, [
+        'model' => $model,
+    ])
+    ->set('file', $file)
+    ->assertSet('model', $model)
+    ->assertSet('fileHeaders', [
+        'title,"slug","body","extra"',
+    ])
+    ->assertSet('fileRowCount', 2);
+});
+
+it('read csv file as csv', function () {
+
+    Config::set('livewire_csv.file_type', 'csv');
+
+    $file = UploadedFile::fake()
+                    ->createWithContent(
+                        'posts.csv',
+                        file_get_contents('stubs/posts.csv', true)
+                    );
+
+    $model = Post::class;
+
+    livewire(CsvImporter::class, [
+        'model' => $model,
+    ])
+    ->set('file', $file)
+    ->assertSet('model', $model)
+    ->assertSet('fileHeaders', [
+        'title', 'slug', 'body', 'extra',
+    ])
+    ->assertSet('fileRowCount', 2);
+});
+
+it('return error when read csv file with semicolon delimiter', function () {
+
+    Config::set('livewire_csv.file_type', 'csv');
+
+    $file = UploadedFile::fake()
+                    ->createWithContent(
+                        'posts_semi.csv',
+                        file_get_contents('stubs/posts_semi.csv', true)
+                    );
+
+    $model = Post::class;
+
+    livewire(CsvImporter::class, [
+        'model' => $model,
+    ])
+    ->set('file', $file)
+    ->assertSet('model', $model)
+    ->assertNotSet('fileHeaders', [
+        'title', 'slug', 'body', 'extra',
+    ])
+    ->assertSet('fileHeaders', [
+        'title;"slug";"body";"extra"',
+    ])
+    ->assertSet('fileRowCount', 2);
+});
+
+it('read csv file with semicolon delimiter without error', function () {
+
+    Config::set('livewire_csv.set_delimiter', ';');
+
+    $file = UploadedFile::fake()
+                    ->createWithContent(
+                        'posts_semi.csv',
+                        file_get_contents('stubs/posts_semi.csv', true)
+                    );
+
+    $model = Post::class;
+
+    livewire(CsvImporter::class, [
+        'model' => $model,
+    ])
+    ->set('file', $file)
+    ->assertSet('model', $model)
+    ->assertSet('fileHeaders', [
+        'title', 'slug', 'body', 'extra',
+    ])
+    ->assertSet('fileRowCount', 2);
 });
