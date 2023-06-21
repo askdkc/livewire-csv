@@ -1,5 +1,20 @@
 # Changelog
 
+## v1.7.0 - 2023-06-21
+
+### What's Changed
+
+#### Added a new configuration option for CSV delimiter
+
+A new setting set_delimiter has been introduced, allowing users to specify a different delimiter for CSV files, such as ;. By default, , is the delimiter. / CSVで`,`以外のセパレータ`;`とかを自由に設定で指定出来るようになったよ👍
+
+#### PRs:
+
+- add set_delimiter by @algomera in https://github.com/askdkc/livewire-csv/pull/66
+- Update README to explain new feature by @askdkc in https://github.com/askdkc/livewire-csv/pull/67
+
+**Full Changelog**: https://github.com/askdkc/livewire-csv/compare/v1.6.2...v1.7.0
+
 ## v1.6.2 - 2023-06-15
 
 ### What's Changed
