@@ -1,5 +1,16 @@
 # Changelog
 
+## v1.7.1 - 2023-09-09
+
+### What's Changed
+
+#### Add PHP 8.3 Support
+
+- Bump dependabot/fetch-metadata from 1.5.1 to 1.6.0 by @dependabot in https://github.com/askdkc/livewire-csv/pull/69
+- Support PHP 8.3 by @askdkc in https://github.com/askdkc/livewire-csv/pull/71
+
+**Full Changelog**: https://github.com/askdkc/livewire-csv/compare/v1.7.0...v1.7.1
+
 ## v1.7.0 - 2023-06-21
 
 ### What's Changed
