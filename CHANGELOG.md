@@ -1,5 +1,21 @@
 # Changelog
 
+## v1.8.0 - 2024-01-15
+
+### What's Changed
+
+#### Drop support for PHP 8.0
+
+* Bump actions/checkout from 3 to 4 by @dependabot in https://github.com/askdkc/livewire-csv/pull/73
+* Bump postcss from 8.4.20 to 8.4.31 by @dependabot in https://github.com/askdkc/livewire-csv/pull/74
+* Bump stefanzweifel/git-auto-commit-action from 4 to 5 by @dependabot in https://github.com/askdkc/livewire-csv/pull/75
+* Bump @babel/traverse from 7.20.10 to 7.23.2 by @dependabot in https://github.com/askdkc/livewire-csv/pull/76
+* Bump browserify-sign from 4.2.1 to 4.2.2 by @dependabot in https://github.com/askdkc/livewire-csv/pull/77
+* Bump follow-redirects from 1.15.2 to 1.15.4 by @dependabot in https://github.com/askdkc/livewire-csv/pull/78
+* League CSV versioning fix by @askdkc in https://github.com/askdkc/livewire-csv/pull/79
+
+**Full Changelog**: https://github.com/askdkc/livewire-csv/compare/v1.7.1...v1.8.0
+
 ## v1.7.1 - 2023-09-09
 
 ### What's Changed
