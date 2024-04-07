@@ -1,5 +1,22 @@
 # Changelog
 
+## v1.8.1 - 2024-04-07
+
+### What's Changed
+
+#### Finally fixed League CSV change (since v9.12) bug🎉
+
+* Bump nick-fields/retry from 2 to 3 by @dependabot in https://github.com/askdkc/livewire-csv/pull/82
+* Bump ramsey/composer-install from 2 to 3 by @dependabot in https://github.com/askdkc/livewire-csv/pull/83
+* Bump follow-redirects from 1.15.4 to 1.15.6 by @dependabot in https://github.com/askdkc/livewire-csv/pull/84
+* Bump webpack-dev-middleware from 5.3.3 to 5.3.4 by @dependabot in https://github.com/askdkc/livewire-csv/pull/85
+* Bump dependabot/fetch-metadata from 1.6.0 to 2.0.0 by @dependabot in https://github.com/askdkc/livewire-csv/pull/86
+* Bump express from 4.18.2 to 4.19.2 by @dependabot in https://github.com/askdkc/livewire-csv/pull/87
+* Update Branch by @askdkc in https://github.com/askdkc/livewire-csv/pull/88
+* League Csv Update by @askdkc in https://github.com/askdkc/livewire-csv/pull/81
+
+**Full Changelog**: https://github.com/askdkc/livewire-csv/compare/v1.8.0...v1.8.1
+
 ## v1.8.0 - 2024-01-15
 
 ### What's Changed
