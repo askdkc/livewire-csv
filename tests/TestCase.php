@@ -33,7 +33,7 @@ class TestCase extends Orchestra
             rmdir(__DIR__.'/../vendor/orchestra/testbench-core/laravel/lang/ja');
         }
 
-        if(is_file(__DIR__.'/../vendor/orchestra/testbench-core/laravel/configlivewire_csv.php')) {
+        if (is_file(__DIR__.'/../vendor/orchestra/testbench-core/laravel/configlivewire_csv.php')) {
             unlink(__DIR__.'/../vendor/orchestra/testbench-core/laravel/configlivewire_csv.php');
         }
     }
@@ -70,15 +70,18 @@ class TestCase extends Orchestra
         return $this;
     }
 
-    public function migrationExists(string $filename): Bool
+    public function migrationExists(string $filename): bool
     {
         $path = database_path('migrations/');
         $files = scandir($path);
         $pos = false;
         foreach ($files as $value) {
             $pos = strpos($value, $filename);
-            if($pos !== false) return true;
+            if ($pos !== false) {
+                return true;
+            }
         }
+
         return false;
     }
 }

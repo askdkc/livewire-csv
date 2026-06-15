@@ -13,8 +13,8 @@ use Illuminate\Support\Collection;
 
 class ImportCsv implements ShouldQueue
 {
-    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
     use Batchable;
+    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
     /**
      * Create a new job instance.
@@ -27,8 +27,7 @@ class ImportCsv implements ShouldQueue
         public array $chunk,
         public array $columns,
         public array $upsertColumns,
-    ) {
-    }
+    ) {}
 
     /**
      * Execute the job.
@@ -40,11 +39,9 @@ class ImportCsv implements ShouldQueue
         $importData = [];
 
         // swap user specified csv data fields to actual database column names
-        foreach($this->chunk as $data)
-        {
-            $temprow = new Collection();
-            foreach ($this->columns as $key => $value)
-            {
+        foreach ($this->chunk as $data) {
+            $temprow = new Collection;
+            foreach ($this->columns as $key => $value) {
                 $temprow->push([$key => $data[$value] ?? null]);
             }
             $importData[] = $temprow->collapse()->toArray();

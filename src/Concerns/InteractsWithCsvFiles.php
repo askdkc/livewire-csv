@@ -8,9 +8,6 @@ trait InteractsWithCsvFiles
 {
     /**
      * Read CSV File.
-     *
-     * @param  string  $path
-     * @return Reader
      */
     protected function readCSV(string $path): Reader
     {
@@ -22,7 +19,7 @@ trait InteractsWithCsvFiles
             ->skipEmptyRecords();
 
         // Check File Type
-        if(config('livewire_csv.file_type') === 'tsv') {
+        if (config('livewire_csv.file_type') === 'tsv') {
             $csv->setDelimiter("\t");
         }
 

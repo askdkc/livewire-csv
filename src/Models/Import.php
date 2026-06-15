@@ -4,6 +4,7 @@ namespace Askdkc\LivewireCsv\Models;
 
 use Askdkc\LivewireCsv\Scopes;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
 
 /**
  * Askdkc\LivewireCsv\Models\Import
@@ -15,9 +16,9 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $file_name
  * @property int $total_rows
  * @property int $processed_rows
- * @property \Illuminate\Support\Carbon|null $completed_at
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property Carbon|null $completed_at
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
  */
 class Import extends Model
 {
@@ -33,7 +34,7 @@ class Import extends Model
     /**
      * The attributes that aren't mass assignable.
      *
-     * @var array<string>|bool
+     * @var array<string>
      */
     protected $guarded = [];
 }

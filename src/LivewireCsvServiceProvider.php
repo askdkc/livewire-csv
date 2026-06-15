@@ -46,8 +46,6 @@ class LivewireCsvServiceProvider extends PackageServiceProvider
 
     /**
      * Configure Livewire CSV Blade components
-     *
-     * @return void
      */
     protected function configureComponents(): void
     {
@@ -58,8 +56,6 @@ class LivewireCsvServiceProvider extends PackageServiceProvider
 
     /**
      * Register livewire components
-     *
-     * @return void
      */
     protected function registerLivewireComponents(): void
     {
@@ -70,9 +66,6 @@ class LivewireCsvServiceProvider extends PackageServiceProvider
 
     /**
      * Register given component.
-     *
-     * @param  string  $component
-     * @return void
      */
     protected function registerComponent(string $component): void
     {
@@ -81,8 +74,6 @@ class LivewireCsvServiceProvider extends PackageServiceProvider
 
     /**
      * Register Livewire CSV blade directives
-     *
-     * @return void
      */
     protected function registerBladeDirectives(): void
     {

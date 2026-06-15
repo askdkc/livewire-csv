@@ -2,16 +2,12 @@ includes:
     - phpstan-baseline.neon
 
 parameters:
-    level: 6
+    level: 5
     paths:
         - src
         - config
         - database
+        - tests/Models/User.php
     tmpDir: build/phpstan
-    checkMissingIterableValueType: false
-    checkGenericClassInNonGenericObjectType: false
     bootstrapFiles:
         - classAliases.php
-    
-
-

@@ -2,6 +2,7 @@
 
 use Askdkc\LivewireCsv\Http\Livewire\HandleImports;
 use Askdkc\LivewireCsv\Tests\Models\User;
+
 use function Pest\Livewire\livewire;
 
 it('renders handle imports component with model', function () {

@@ -1,3 +1,5 @@
 <?php
 
-class_alias(\Askdkc\LivewireCsv\LivewireCsvManager::class, 'livewire-csv');
+use Askdkc\LivewireCsv\LivewireCsvManager;
+
+class_alias(LivewireCsvManager::class, 'livewire-csv');

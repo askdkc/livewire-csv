@@ -6,10 +6,8 @@ class LivewireCsvDirectives
 {
     /**
      * Get CSV Styles
-     *
-     * @return string
      */
-    public static function csvStyles(): string|null
+    public static function csvStyles(): ?string
     {
         if (config('livewire_csv.layout') == 'tailwindcss') {
             return self::getTailwindStyle();
@@ -20,8 +18,6 @@ class LivewireCsvDirectives
 
     /**
      * Get CSV Scripts
-     *
-     * @return string
      */
     public static function csvScripts(): string
     {
@@ -32,8 +28,6 @@ class LivewireCsvDirectives
 
     /**
      * Get Tailwind Style Path
-     *
-     * @return string
      */
     protected static function getTailwindStyle(): string
     {
