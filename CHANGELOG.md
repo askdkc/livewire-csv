@@ -1,5 +1,60 @@
 # Changelog
 
+## v2.0.0 - 2026-06-15
+
+### What's Changed
+
+#### Add Support for Laravel 12 and 13 with Livewire v4
+
+* Bump dependabot/fetch-metadata from 2.0.0 to 2.1.0 by @dependabot[bot] in https://github.com/askdkc/livewire-csv/pull/90
+* Bump ws from 8.11.0 to 8.17.1 by @dependabot[bot] in https://github.com/askdkc/livewire-csv/pull/91
+* Bump braces from 3.0.2 to 3.0.3 by @dependabot[bot] in https://github.com/askdkc/livewire-csv/pull/92
+* Bump dependabot/fetch-metadata from 2.1.0 to 2.2.0 by @dependabot[bot] in https://github.com/askdkc/livewire-csv/pull/93
+* Bump webpack from 5.76.1 to 5.94.0 by @dependabot[bot] in https://github.com/askdkc/livewire-csv/pull/94
+* Bump elliptic from 6.5.4 to 6.5.7 by @dependabot[bot] in https://github.com/askdkc/livewire-csv/pull/95
+* Bump serve-static and express by @dependabot[bot] in https://github.com/askdkc/livewire-csv/pull/96
+* Bump send and express by @dependabot[bot] in https://github.com/askdkc/livewire-csv/pull/97
+* Bump cookie and express by @dependabot[bot] in https://github.com/askdkc/livewire-csv/pull/98
+* Add php 8.4 Support by @askdkc in https://github.com/askdkc/livewire-csv/pull/99
+* Bump elliptic from 6.5.7 to 6.6.0 by @dependabot[bot] in https://github.com/askdkc/livewire-csv/pull/100
+* Bump dependabot/fetch-metadata from 2.2.0 to 2.3.0 by @dependabot[bot] in https://github.com/askdkc/livewire-csv/pull/101
+* Bump elliptic from 6.6.0 to 6.6.1 by @dependabot[bot] in https://github.com/askdkc/livewire-csv/pull/102
+* Bump http-proxy-middleware from 2.0.6 to 2.0.9 by @dependabot[bot] in https://github.com/askdkc/livewire-csv/pull/103
+* Bump dependabot/fetch-metadata from 2.3.0 to 2.4.0 by @dependabot[bot] in https://github.com/askdkc/livewire-csv/pull/104
+* Bump stefanzweifel/git-auto-commit-action from 5 to 6 by @dependabot[bot] in https://github.com/askdkc/livewire-csv/pull/105
+* Bump pbkdf2 from 3.1.2 to 3.1.3 by @dependabot[bot] in https://github.com/askdkc/livewire-csv/pull/106
+* Bump on-headers and compression by @dependabot[bot] in https://github.com/askdkc/livewire-csv/pull/107
+* Bump actions/checkout from 4 to 5 by @dependabot[bot] in https://github.com/askdkc/livewire-csv/pull/108
+* Bump sha.js from 2.4.11 to 2.4.12 by @dependabot[bot] in https://github.com/askdkc/livewire-csv/pull/109
+* Bump cipher-base from 1.0.4 to 1.0.6 by @dependabot[bot] in https://github.com/askdkc/livewire-csv/pull/110
+* Bump stefanzweifel/git-auto-commit-action from 6 to 7 by @dependabot[bot] in https://github.com/askdkc/livewire-csv/pull/111
+* Bump actions/checkout from 5 to 6 by @dependabot[bot] in https://github.com/askdkc/livewire-csv/pull/112
+* Bump node-forge from 1.3.1 to 1.3.2 by @dependabot[bot] in https://github.com/askdkc/livewire-csv/pull/113
+* Bump qs and express by @dependabot[bot] in https://github.com/askdkc/livewire-csv/pull/114
+* Bump dependabot/fetch-metadata from 2.4.0 to 2.5.0 by @dependabot[bot] in https://github.com/askdkc/livewire-csv/pull/115
+* Bump lodash from 4.17.21 to 4.17.23 by @dependabot[bot] in https://github.com/askdkc/livewire-csv/pull/116
+* Bump webpack from 5.94.0 to 5.105.0 by @dependabot[bot] in https://github.com/askdkc/livewire-csv/pull/117
+* Bump minimatch from 3.1.2 to 3.1.5 by @dependabot[bot] in https://github.com/askdkc/livewire-csv/pull/118
+* Bump svgo from 2.8.0 to 2.8.2 by @dependabot[bot] in https://github.com/askdkc/livewire-csv/pull/119
+* Bump immutable from 4.2.1 to 4.3.8 by @dependabot[bot] in https://github.com/askdkc/livewire-csv/pull/121
+* Bump serialize-javascript and terser-webpack-plugin by @dependabot[bot] in https://github.com/askdkc/livewire-csv/pull/120
+* Bump ramsey/composer-install from 3 to 4 by @dependabot[bot] in https://github.com/askdkc/livewire-csv/pull/122
+* Bump nick-fields/retry from 3 to 4 by @dependabot[bot] in https://github.com/askdkc/livewire-csv/pull/123
+* Bump picomatch from 2.3.1 to 2.3.2 by @dependabot[bot] in https://github.com/askdkc/livewire-csv/pull/124
+* Bump node-forge from 1.3.2 to 1.4.0 by @dependabot[bot] in https://github.com/askdkc/livewire-csv/pull/125
+* Bump dependabot/fetch-metadata from 2.5.0 to 3.0.0 by @dependabot[bot] in https://github.com/askdkc/livewire-csv/pull/126
+* Bump lodash from 4.17.23 to 4.18.1 by @dependabot[bot] in https://github.com/askdkc/livewire-csv/pull/127
+* Bump follow-redirects from 1.15.6 to 1.16.0 by @dependabot[bot] in https://github.com/askdkc/livewire-csv/pull/128
+* Bump dependabot/fetch-metadata from 3.0.0 to 3.1.0 by @dependabot[bot] in https://github.com/askdkc/livewire-csv/pull/129
+* Bump postcss from 8.4.31 to 8.5.10 by @dependabot[bot] in https://github.com/askdkc/livewire-csv/pull/130
+* Bump fast-uri from 3.1.0 to 3.1.2 by @dependabot[bot] in https://github.com/askdkc/livewire-csv/pull/131
+* Bump qs and body-parser by @dependabot[bot] in https://github.com/askdkc/livewire-csv/pull/132
+* Bump @babel/plugin-transform-modules-systemjs from 7.20.11 to 7.29.4 by @dependabot[bot] in https://github.com/askdkc/livewire-csv/pull/133
+* Bump qs and express by @dependabot[bot] in https://github.com/askdkc/livewire-csv/pull/134
+* Support Laravel 12 and 13 by @askdkc in https://github.com/askdkc/livewire-csv/pull/135
+
+**Full Changelog**: https://github.com/askdkc/livewire-csv/compare/v1.8.1...v2.0.0
+
 ## v1.8.1 - 2024-04-07
 
 ### What's Changed
