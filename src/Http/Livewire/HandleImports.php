@@ -2,12 +2,14 @@
 
 namespace Askdkc\LivewireCsv\Http\Livewire;
 
-use function Askdkc\LivewireCsv\csv_view_path;
 use Askdkc\LivewireCsv\Models\Import;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Foundation\Auth\User;
 use Livewire\Component;
+
+use function Askdkc\LivewireCsv\csv_view_path;
 
 class HandleImports extends Component
 {
@@ -26,15 +28,15 @@ class HandleImports extends Component
 
     public function getImportsProperty(): Collection
     {
-        /** @var \Illuminate\Foundation\Auth\User */
+        /** @var User */
         $user = auth()->user();
 
         return Import::query()
-                    ->forModel($this->model)
-                    ->forUser($user->id)
-                    ->oldest()
-                    ->unCompleted()
-                    ->get();
+            ->forModel($this->model)
+            ->forUser($user->id)
+            ->oldest()
+            ->unCompleted()
+            ->get();
     }
 
     public function render(): View|Factory

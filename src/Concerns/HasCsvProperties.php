@@ -6,13 +6,14 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\MessageBag;
 use League\Csv\Reader;
 use League\Csv\Statement;
+use League\Csv\SyntaxError;
 use League\Csv\TabularDataReader;
 
 /**
  * Askdkc\LivewireCsv\Concerns\HasCsvProperties
  *
  * @property Reader $readCsv
- * @property \League\Csv\TabularDataReader $csvRecords
+ * @property TabularDataReader $csvRecords
  */
 trait HasCsvProperties
 {
@@ -20,8 +21,6 @@ trait HasCsvProperties
 
     /**
      * Read CSV Property
-     *
-     * @return Reader
      */
     public function getReadCsvProperty(): Reader
     {
@@ -30,8 +29,6 @@ trait HasCsvProperties
 
     /**
      * Get CSV Records Property
-     *
-     * @return TabularDataReader
      */
     public function getCsvRecordsProperty(): TabularDataReader
     {
@@ -40,8 +37,6 @@ trait HasCsvProperties
 
     /**
      * Handle CSV Information properties from the given file
-     *
-     * @return array|\Illuminate\Support\MessageBag
      */
     public function handleCsvProperties(): array|MessageBag
     {
@@ -50,7 +45,7 @@ trait HasCsvProperties
             $fileRowCount = $this->csvRecords->count();
 
             return [$fileHeaders, $fileRowCount];
-        } catch (\League\Csv\SyntaxError $exception) {
+        } catch (SyntaxError $exception) {
             Log::warning($exception->getMessage());
 
             return $this->addError(

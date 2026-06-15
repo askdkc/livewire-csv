@@ -1,4 +1,4 @@
-<div class="relative z-10" x-data="{ open: @entangle('open') }" x-show="open" x-cloak>
+<div class="relative z-10" x-data="{ open: $wire.entangle('open') }" x-show="open" x-cloak>
     <div class="fixed inset-0"></div>
 
     <div class="fixed inset-0 overflow-hidden">
@@ -78,7 +78,7 @@
                                                         {{ $columnLabels[$column] ?? ucfirst(str_replace(['_', '-'], ' ', $column)) }}<span class="text-red-600 font-bold text-sm">{{ in_array('columnsToMap.' . $column, array_keys($requiredColumns)) ? '*': ''}}</span>
                                                     </label>
                                                     <div class="mt-1 sm:mt-0 sm:col-span-3">
-                                                        <select wire:model.defer="columnsToMap.{{$column}}" type="text" name="{{ $column }}" id="{{ $column }}" class="max-w-lg block w-full dark:bg-gray-700 dark:text-white shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md">
+                                                        <select wire:model="columnsToMap.{{$column}}" type="text" name="{{ $column }}" id="{{ $column }}" class="max-w-lg block w-full dark:bg-gray-700 dark:text-white shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md">
                                                             <option value="">{{ __('Select a column or keep if not required') }}</option>
                                                             @foreach ($fileHeaders as $fileHeader)
                                                                 <option value="{{$fileHeader}}">{{ $fileHeader }}</option>

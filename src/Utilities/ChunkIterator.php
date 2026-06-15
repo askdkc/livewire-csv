@@ -18,14 +18,8 @@ use Iterator;
  */
 class ChunkIterator
 {
-    /**
-     * @var Iterator
-     */
     protected Iterator $iterator;
 
-    /**
-     * @var int
-     */
     protected int $chunkSize;
 
     public function __construct(Iterator $iterator, int $chunkSize)
@@ -36,13 +30,11 @@ class ChunkIterator
 
     /**
      * Chunk the given data
-     *
-     * @return Generator
      */
     public function get(): Generator
     {
         $this->iterator->rewind();
-        
+
         $chunk = [];
 
         for ($i = 0; $this->iterator->valid(); $i++) {

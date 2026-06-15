@@ -6,8 +6,6 @@ trait InteractsWithColumns
 {
     /**
      * Converts the columnsToMap property into an associative array.
-     *
-     * @return array
      */
     protected function mapThroughColumns(): array
     {
@@ -16,14 +14,12 @@ trait InteractsWithColumns
         }
 
         return collect($this->columnsToMap)
-                ->mapWithKeys(fn ($column): array => [$column => ''])
-                ->toArray();
+            ->mapWithKeys(fn ($column): array => [$column => ''])
+            ->toArray();
     }
 
     /**
      * Maps requiredColumns property into columnsToMap required state.
-     *
-     * @return array
      */
     protected function mapThroughRequiredColumns(): array
     {
@@ -36,5 +32,4 @@ trait InteractsWithColumns
                 return ['columnsToMap.'.$column => 'required'];
             })->toArray();
     }
-
 }

@@ -6,10 +6,6 @@ class LivewireCsvManager
 {
     /**
      * Get the given size and formated it.
-     *
-     * @param  int  $size
-     * @param  int  $precision
-     * @return string|int
      */
     public function formatFileSize(int $size, int $precision = 2): string|int
     {
@@ -17,11 +13,11 @@ class LivewireCsvManager
             return $size;
         }
 
-        $base = log((int) $size) / log(1024);
+        $base = (int) floor(log($size) / log(1024));
         $suffixes = ['KB', 'MB', 'GB', 'TB'];
 
         return round(
-            pow(1024, $base - floor($base)), $precision
-        ).$suffixes[floor($base)];
+            pow(1024, (log($size) / log(1024)) - $base), $precision
+        ).$suffixes[$base];
     }
 }

@@ -1,6 +1,6 @@
 <button
     {{ $attributes }}
-    x-data 
-    x-on:click="window.livewire.emitTo('csv-importer', 'toggle')">
+    x-data
+    x-on:click="Livewire.dispatchTo('csv-importer', 'toggle')">
     {{ $slot }}
 </button>

@@ -10,7 +10,7 @@ trait HasCsvImports
     /**
      * Has imports relationship
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany<Import>
+     * @return HasMany<Import, $this>
      */
     public function imports(): HasMany
     {
